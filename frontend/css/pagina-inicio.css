@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@600;700&display=swap');
+
+:root{
+    --azulOscuro: #164a98;
+    --azulClaro: #006AEA;
+    --celeste: #9CC8FF;
+    --grisClaro: #d2d2d2;
+    --grisOscuro: #7c7b75;
+    --amarillo: #fff200;
+    --mostaza: #ffc63e;
+    --celesteOscuro: #2b93d1;
+    --naranja: #f05323;
+    --verdeOscuro: #00734a;
+    --verdeClaro: #4aa147;
+    --rojo: #d2232a;
+    --turquesa: #00928d;
+    --rosa: #c81f66;
+    --caqui: #C7AC19;
+    --morado: #712c86;
+}
+
+.fondo{
+    background-color: var(--grisClaro);
+}
+
+.fondo-tarjeta{
+    box-shadow: 0px 2px 3px rgba(0,0,0,08);
+}
+
+
+.titulo{
+    border: transparent;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,08);
+    background-color: white;
+    
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+}
+
+.topbar{
+    background-color: var(--azulOscuro);
+    height: 95px;
+    border-bottom: 5px solid var(--grisOscuro);
+}
+
+img{
+    height: 250px;
+    width: 320px;
+}
+
+.btn-actividades{
+    background-color: var(--mostaza);
+    margin-right: 50px;
+    border: transparent;
+    border-radius: 8px;
+    padding: 15px;
+    font-weight: bolder;
+    transition: 0.3s;
+}
+
+.btn-actividades:hover{
+    background-color: var(--mostaza);
+    box-shadow: 0px 4px 12px rgba(0,0,0,08);
+}
+
+.btn-inscripcion{
+    background-color: var(--mostaza);
+    margin-left: 50px;
+    border: transparent;
+    border-radius: 8px;
+    padding: 15px;
+    font-weight: bolder;
+    transition: 0.3s;
+}
+
+.btn-inscripcion:hover{
+    background-color: var(--mostaza);
+    box-shadow: 0px 4px 12px rgba(0,0,0,08);
+}
+
+.btn-warning{
+    transition: 0.3s;
+}
+
+.btn-warning:hover{
+    box-shadow: 0px 4px 12px rgba(0,0,0,08);
+}
+

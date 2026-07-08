@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@600;700&display=swap');
+
+:root{
+    --azulOscuro: #164a98;
+    --azulClaro: #006AEA;
+    --celeste: #9CC8FF;
+    --grisClaro: #d2d2d2;
+    --grisOscuro: #7c7b75;
+    --amarillo: #fff200;
+    --mostaza: #ffc63e;
+    --celesteOscuro: #2b93d1;
+    --naranja: #f05323;
+    --verdeOscuro: #00734a;
+    --verdeClaro: #4aa147;
+    --rojo: #d2232a;
+    --turquesa: #00928d;
+    --rosa: #c81f66;
+    --caqui: #C7AC19;
+    --morado: #712c86;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+}
+
+.borde-formulario{
+    border: transparent;
+    border-radius: 8px;
+    box-shadow: 0px 2px 3px rgba(0,0,0,1);;
+}
+
+
+
+.topbar{
+    background-color: var(--azulOscuro);
+    height: 85px;
+    border-bottom: 5px solid var(--grisOscuro);
+}
+
+.btn-guardar-certificacion{
+    background-color: var(--mostaza);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn-guardar-certificacion:hover{
+    background-color: #fab003;
+}
+
+.btn-guardar-certificacion:active{
+    background-color: var(--mostaza);
+}
+

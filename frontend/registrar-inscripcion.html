@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/registrar-inscripcion.css">
+
+    <title>Registrar Insripción</title>
+</head>
+
+<body>
+    <!--Barra de navegación-->
+    <div class="container-fluid topbar">
+        <div class="row h-100 d-flex justify-content-between align-items-center">
+            <div class="col-12 col-lg-2">
+                <a href="#" class="btn text-white fs-4 fw-bold">CampusFest</a>
+            </div>
+
+            <div class="col-12 col-lg-5 mb-5 mb-lg-0">
+                <div class="row">
+                    <div class="col-lg-3 col-lg-12 d-flex justify-content-evenly">
+                        <a href="pagina-inicio.html" class="btn text-white border fw-medium">INICIO</a>
+                        <a href="#" class="btn text-white border fw-medium">ACTIVIDADES</a>
+                        <a href="#" class="btn text-white border fw-medium">AGENDA</a>
+                        <a href="#" class="btn text-white border fw-medium">STANDS</a>
+                        <a href="#" class="btn text-white border fw-medium">CONTACTO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Formulario-->
+    <div class="container-fluid main-content p-4">
+        <div class="row mt-3">
+            <div class="col-12">
+                <h1 class="ms-3"><i class="fa-brands fa-wpforms me-3"></i>Formulario de Inscripción</h1>
+            </div>
+        </div>
+
+        <div class="row mt-3 ms-3 me-3">
+            <div class="col-12 col-lg-8 borde-formulario p-3 w-100" >
+                <form" aria-labelledby="titulo-certificacion" novalidate onsubmit="event.preventDefault()">
+                    <div class="row">
+                        <!-- Nombre -->
+                        <div class="col-12 col-lg-6 mb-4">
+                            <label for="nombreCompleto" class="form-label fw-semibold">
+                                Nombre Completo
+                                <span class="text-danger" aria-hidden="true">*</span>
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                </span>
+
+                                <input type="text" id="nombreCompleto" name="nombreCompleto" class="form-control"
+                                    required aria-required="true" aria-describedby="ayudaNombre">
+
+                            </div>
+
+                            <div id="ayudaNombre" class="form-text">
+                                Ingrese el nombre completo.
+                            </div>
+                        </div>
+
+                        <!-- Identificación -->
+                        <div class="col-12 col-lg-6 mb-4">
+                            <label for="identificacion" class="form-label fw-semibold">
+                                Identificación
+                                <span class="text-danger" aria-hidden="true">*</span>
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-id-badge" aria-hidden="true"></i>
+                                </span>
+
+                                <input type="text" id="identificacion" name="indentificacion" class="form-control" required
+                                    aria-required="true" aria-describedby="ayudaIdentificacion">
+                            </div>
+
+                            <div id="ayudaIdentificacion" class="form-text">
+                                Ingrese su número de indentificación.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                            <!-- Correo Electronico-->
+                        <div class="col-12 col-lg-6 mb-4">
+                            <label for="correoElectronico" class="form-label fw-semibold">
+                                Correo Electrónico
+                                <span class="text-danger" aria-hidden="true">*</span>
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-at" aria-hidden="true"></i>
+                                </span>
+
+                                <input type="email" id="correoElectronico" name="correoElectronico" class="form-control" required
+                                    aria-required="true" aria-describedby="ayudaCorreo">
+                            </div>
+
+                            <div id="ayudaCorreo" class="form-text">
+                                Ingrese su correo electrónico.
+                            </div>
+                        </div>
+
+                        <!--Telefono -->
+                        <div class="col-12 col-lg-6 mb-4">
+                            <label for="telefono" class="form-label fw-semibold">
+                                Teléfono
+                                <span class="text-danger" aria-hidden="true">*</span>
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                                </span>
+
+                                <input type="number" id="telefono" name="telefono" class="form-control" required
+                                    aria-required="true" aria-describedby="ayudaTelefono">
+                            </div>
+
+                            <div id="ayudaTelefono" class="form-text">
+                                Ingrese su número de teléfono.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                            <!--Carrera O Grupo -->
+                        <div class="col-12 col-lg-6 mb-4">
+                            <label for="carrera" class="form-label fw-semibold">
+                                Carrera o Grupo
+                                <span class="text-danger" aria-hidden="true">*</span>
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-book" aria-hidden="true"></i>
+                                </span>
+
+                                <input type="text" id="carrera" name="carrera" class="form-control"
+                                    required aria-required="true" aria-describedby="ayudaCarrera">
+
+                            </div>
+
+                            <div id="ayudaCarrera" class="form-text">
+                                Ingrese la carrera o grupo al que pertenece
+                            </div>
+                        </div>
+
+                        <!--Actividad Seleccionada -->
+                        <div class="col-12 col-lg-6 mb-4">
+                            <label for="actividad" class="form-label fw-semibold">
+                                Actividad Seleccionada
+                                <span class="text-danger" aria-hidden="true">*</span>
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                </span>
+
+                                <input type="text" id="actividad" name="actividad" class="form-control"
+                                    required aria-required="true" aria-describedby="ayudaActividad">
+
+                            </div>
+
+                            <div id="ayudaActividad" class="form-text">
+                                Ingrese la carrera o grupo al que pertenece
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Comentarios -->
+                        <div class="mb-4">
+                            <label for="comentarios" class="form-label fw-semibold">
+                                Comentarios Opcionales
+                                <span class="text-muted">(Opcional)</span>
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                                </span>
+
+                                <textarea id="comentarios" name="comentarios" rows="4" class="form-control"
+                                    aria-describedby="ayudaComentarios"></textarea>
+                            </div>
+
+                            <div id="ayudaDescripcion" class="form-text">
+                                Puede agregar observaciones o detalles relevantes.
+                            </div>
+                        </div> 
+                    </div>
+
+                    
+
+
+                    <!-- BOTONES -->
+                    <div class="d-flex justify-content-end">
+
+                        <button class="btn-guardar-certificacion" id="btnGuardar">
+                            Registrar Inscripción
+                        </button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
