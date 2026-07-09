@@ -1,0 +1,1 @@
+app.use("/estudiantes", require("./routes/estudiante.route"));
