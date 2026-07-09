@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/sector-contacto.css">
+    <title>Inicio</title>
+</head>
+    <body>
+    
+        <div class="container-fluid topbar">
+            <div class="row h-100 d-flex justify-content-between align-items-center">
+                <div class="col-12 col-lg-2">
+                    <a href="pagina-inicio.html" class="btn text-white fs-4 fw-bold">CampusFest</a>
+                </div>
+
+                <div class="col-12 col-lg-5 mb-4 mb-lg-0">
+                    <div class="row">
+                        <div class="col-lg-3 col-lg-12 d-flex justify-content-evenly">
+                            <a href="pagina-inicio.html" class="btn text-white border fw-medium">INICIO</a>
+                            <a href="lista-actividades.html" class="btn text-white border fw-medium">ACTIVIDADES</a>
+                            <a href="sector-agenda.html" class="btn text-white border fw-medium">AGENDA</a>
+                            <a href="stands.html" class="btn text-white border fw-medium">STANDS</a>
+                            <a href="sector-contacto.html" class="btn text-white border fw-medium pagina-activa">CONTACTO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--sector contacto-->
+        <div class="container my-5">
+        
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1 class="fw-bold display-5 text-start">Página de contacto</h1>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-12 col-lg-7">
+                    
+                    <h3 class="fw-bold fs-4 mb-3">Información del comité organizador:</h3>
+                    <div class="card p-4 mb-5 border border-dark rounded-3 shadow-sm">
+                        <h5 class="fw-bold text-muted small mb-3 text-uppercase tracking-wider">Comité organizador</h5>
+                        <div class="row align-items-center">
+                            <div class="col-12 col-sm-4 text-center mb-3 mb-sm-0">
+                                <div class="bg-light border border-dark rounded d-flex align-items-center justify-content-center mx-auto" style="width: 120px; height: 120px;">
+                                    <i class="fa-solid fa-users fa-3x text-secondary"></i>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-8">
+                                <p class="mb-2"><strong>TEXTO INFORMATIVO:</strong> Oficina de Asuntos Estudiantiles, Edificio Administrativo.</p>
+                                <div class="row mt-3">
+                                    <div class="col-6">
+                                        <p class="mb-1 small text-muted text-uppercase fw-bold">Correo de contacto</p>
+                                        <p class="mb-0 text-break">contacto@campusfest.edu</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="mb-1 small text-muted text-uppercase fw-bold">Teléfono</p>
+                                        <p class="mb-0">+506 8789-4565</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="fw-bold fs-4 mb-3">Preguntas frecuentes básicas:</h3>
+                    <div class="card p-4 border border-dark rounded-3 shadow-sm bg-white">
+                        <h5 class="fw-bold text-muted small mb-3 text-uppercase tracking-wider">Preguntas frecuentes:</h5>
+                        
+                        <div class="accordion accordion-flush" id="accordionFAQs">
+                            
+                            <div class="accordion-item border border-dark mb-3 rounded">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold text-dark rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="false" aria-controls="faqOne">
+                                        ¿El evento tiene algún costo de inscripción?
+                                    </button>
+                                </h2>
+                                <div id="faqOne" class="accordion-collapse collapse" data-bs-parent="#accordionFAQs">
+                                    <div class="accordion-body bg-light text-muted">
+                                        No, todas las actividades del CampusFest son completamente gratuitas para la comunidad universitaria. Algunas requieren inscripción previa por temas de aforo.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item border border-dark mb-3 rounded">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold text-dark rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                                        ¿Quiénes pueden participar en los torneos?
+                                    </button>
+                                </h2>
+                                <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQs">
+                                    <div class="accordion-body bg-light text-muted">
+                                        Pueden participar todos los estudiantes activos de la institución que cuenten con su credencial universitaria vigente al momento del evento.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item border border-dark mb-0 rounded">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold text-dark rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                                        ¿Dónde retiro los premios de las competencias?
+                                    </button>
+                                </h2>
+                                <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQs">
+                                    <div class="accordion-body bg-light text-muted">
+                                        Los premios y reconocimientos serán entregados en la ceremonia de clausura en la Plaza Central o directamente en la oficina del comité organizador.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-5">
+                    <h3 class="fw-bold fs-4 mb-3">Formulario de consulta:</h3>
+                    <div class="card p-4 border border-dark rounded-3 shadow-sm bg-white h-100">
+                        <form action="#" method="POST" class="d-flex flex-column h-100">
+                            
+                            <div class="mb-3">
+                                <label for="nombreCompleto" class="form-label fw-bold">Nombre completo:</label>
+                                <input type="text" class="form-control border-dark" id="nombreCompleto" placeholder="Ingresa tu nombre completo" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="correoElectronico" class="form-label fw-bold">Correo Electrónico:</label>
+                                <input type="email" class="form-control border-dark" id="correoElectronico" placeholder="nombre@ejemplo.com" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label fw-bold">Teléfono:</label>
+                                <input type="tel" class="form-control border-dark" id="telefono" placeholder="Ej: +123 4567 890">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="asunto" class="form-label fw-bold">Asunto:</label>
+                                <input type="text" class="form-control border-dark" id="asunto" placeholder="Motivo de tu consulta" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="mensaje" class="form-label fw-bold">Mensaje / Consulta:</label>
+                                <textarea class="form-control border-dark" id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." style="height: 180px; resize: none;" required></textarea>
+                            </div>
+
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-outline-dark px-4 py-2 fw-medium border-2">Enviar Consulta</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>   
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <footer></footer>
+    </body>     
+</html>

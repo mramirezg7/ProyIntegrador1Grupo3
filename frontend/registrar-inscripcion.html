@@ -17,299 +17,300 @@
 </head>
 
 <body>
-    <!--Barra de navegación-->
-    <div class="container-fluid topbar">
-        <div class="row h-100 d-flex justify-content-between align-items-center">
-            <div class="col-12 col-lg-2">
-                <a href="#" class="btn text-white fs-4 fw-bold">CampusFest</a>
-            </div>
+        <!--Barra de navegación-->
+        <div class="container-fluid topbar">
+            <div class="row h-100 d-flex justify-content-between align-items-center">
+                <div class="col-12 col-lg-2">
+                    <a href="#" class="btn text-white fs-4 fw-bold">CampusFest</a>
+                </div>
 
-            <div class="col-12 col-lg-5 mb-5 mb-lg-0">
-                <div class="row">
-                    <div class="col-lg-3 col-lg-12 d-flex justify-content-evenly">
-                        <a href="pagina-inicio.html" class="btn text-white border fw-medium">INICIO</a>
-                        <a href="#" class="btn text-white border fw-medium">ACTIVIDADES</a>
-                        <a href="#" class="btn text-white border fw-medium">AGENDA</a>
-                        <a href="#" class="btn text-white border fw-medium">STANDS</a>
-                        <a href="#" class="btn text-white border fw-medium">CONTACTO</a>
+                <div class="col-12 col-lg-5 mb-5 mb-lg-0">
+                    <div class="row">
+                        <div class="col-lg-3 col-lg-12 d-flex justify-content-evenly">
+                            <a href="pagina-inicio.html" class="btn text-white border fw-medium">INICIO</a>
+                            <a href="lista-actividades.html" class="btn text-white border fw-medium">ACTIVIDADES</a>
+                            <a href="sector-agenda.html" class="btn text-white border fw-medium">AGENDA</a>
+                            <a href="stands.html" class="btn text-white border fw-medium">STANDS</a>
+                            <a href="sector-contacto.html" class="btn text-white border fw-medium">CONTACTO</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!--Formulario-->
-    <div class="container-fluid main-content p-4">
-        <div class="row mt-3">
-            <div class="col-12">
-                <h1 class="ms-3"><i class="fa-brands fa-wpforms me-3"></i>Formulario de Inscripción</h1>
+        <!--Formulario-->
+        <div class="container-fluid main-content p-4">
+            <div class="row mt-3">
+                <div class="col-12">
+                    <h1 class="ms-3"><i class="fa-brands fa-wpforms me-3"></i>Formulario de Inscripción</h1>
+                </div>
             </div>
+
+            <div class="row mt-3 ms-3 me-3">
+                <div class="col-12 col-lg-8 borde-formulario p-3 w-100" >
+                    <form aria-labelledby="titulo-certificacion" novalidate onsubmit="validarFormulario(event)">
+                        <div class="row">
+                            <!-- Nombre -->
+                            <div class="col-12 col-lg-6 mb-4">
+                                <label for="nombreCompleto" class="form-label fw-semibold">
+                                    Nombre Completo
+                                    <span class="text-danger" aria-hidden="true">*</span>
+                                </label>
+
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                    </span>
+
+                                    <input type="text" id="nombreCompleto" name="nombreCompleto" class="form-control"
+                                        required aria-required="true" aria-describedby="ayudaNombre">
+
+                                </div>
+
+                                <div id="ayudaNombre" class="form-text">
+                                    Ingrese el nombre completo.
+                                </div>
+                            </div>
+
+                            <!-- Identificación -->
+                            <div class="col-12 col-lg-6 mb-4">
+                                <label for="identificacion" class="form-label fw-semibold">
+                                    Identificación
+                                    <span class="text-danger" aria-hidden="true">*</span>
+                                </label>
+
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-id-badge" aria-hidden="true"></i>
+                                    </span>
+
+                                    <input type="text" id="identificacion" name="indentificacion" class="form-control" required
+                                        aria-required="true" aria-describedby="ayudaIdentificacion">
+                                </div>
+
+                                <div id="ayudaIdentificacion" class="form-text">
+                                    Ingrese su número de indentificación.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                                <!-- Correo Electronico-->
+                            <div class="col-12 col-lg-6 mb-4">
+                                <label for="correoElectronico" class="form-label fw-semibold">
+                                    Correo Electrónico
+                                    <span class="text-danger" aria-hidden="true">*</span>
+                                </label>
+
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-at" aria-hidden="true"></i>
+                                    </span>
+
+                                    <input type="email" id="correoElectronico" name="correoElectronico" class="form-control" required
+                                        aria-required="true" aria-describedby="ayudaCorreo">
+                                </div>
+
+                                <div id="ayudaCorreo" class="form-text">
+                                    Ingrese su correo electrónico.
+                                </div>
+                            </div>
+
+                            <!--Telefono -->
+                            <div class="col-12 col-lg-6 mb-4">
+                                <label for="telefono" class="form-label fw-semibold">
+                                    Teléfono
+                                    <span class="text-danger" aria-hidden="true">*</span>
+                                </label>
+
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                                    </span>
+
+                                    <input type="number" id="telefono" name="telefono" class="form-control" required
+                                        aria-required="true" aria-describedby="ayudaTelefono">
+                                </div>
+
+                                <div id="ayudaTelefono" class="form-text">
+                                    Ingrese su número de teléfono.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                                <!--Carrera O Grupo -->
+                            <div class="col-12 col-lg-6 mb-4">
+                                <label for="carrera" class="form-label fw-semibold">
+                                    Carrera o Grupo
+                                    <span class="text-danger" aria-hidden="true">*</span>
+                                </label>
+
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-book" aria-hidden="true"></i>
+                                    </span>
+
+                                    <input type="text" id="carrera" name="carrera" class="form-control"
+                                        required aria-required="true" aria-describedby="ayudaCarrera">
+
+                                </div>
+
+                                <div id="ayudaCarrera" class="form-text">
+                                    Ingrese la carrera o grupo al que pertenece
+                                </div>
+                            </div>
+
+                            <!--Actividad Seleccionada -->
+                            <div class="col-12 col-lg-6 mb-4">
+                                <label for="actividad" class="form-label fw-semibold">
+                                    Actividad Seleccionada
+                                    <span class="text-danger" aria-hidden="true">*</span>
+                                </label>
+
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                    </span>
+
+                                    <input type="text" id="actividad" name="actividad" class="form-control"
+                                        required aria-required="true" aria-describedby="ayudaActividad">
+
+                                </div>
+
+                                <div id="ayudaActividad" class="form-text">
+                                    Ingrese la carrera o grupo al que pertenece
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Comentarios -->
+                            <div class="mb-4">
+                                <label for="comentarios" class="form-label fw-semibold">
+                                    Comentarios Opcionales
+                                    <span class="text-muted">(Opcional)</span>
+                                </label>
+
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                                    </span>
+
+                                    <textarea id="comentarios" name="comentarios" rows="4" class="form-control"
+                                        aria-describedby="ayudaComentarios"></textarea>
+                                </div>
+
+                                <div id="ayudaDescripcion" class="form-text">
+                                    Puede agregar observaciones o detalles relevantes.
+                                </div>
+                            </div> 
+                        </div>
+
+                        
+
+
+                        <!-- BOTONES -->
+                        <div class="d-flex justify-content-end">
+
+                            <button class="btn-guardar-certificacion" id="btnGuardar">
+                                Registrar Inscripción
+                            </button>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
         </div>
 
-        <div class="row mt-3 ms-3 me-3">
-            <div class="col-12 col-lg-8 borde-formulario p-3 w-100" >
-                <form aria-labelledby="titulo-certificacion" novalidate onsubmit="validarFormulario(event)">
-                    <div class="row">
-                        <!-- Nombre -->
-                        <div class="col-12 col-lg-6 mb-4">
-                            <label for="nombreCompleto" class="form-label fw-semibold">
-                                Nombre Completo
-                                <span class="text-danger" aria-hidden="true">*</span>
-                            </label>
+        <script>
+            function validarFormulario(event) {
+                event.preventDefault();
 
-                            <div class="input-group">
-                                <span class="input-group-text">
-                                    <i class="fa-solid fa-user" aria-hidden="true"></i>
-                                </span>
+                const nombre = document.getElementById('nombreCompleto');
+                const identificacion = document.getElementById('identificacion');
+                const correo = document.getElementById('correoElectronico');
+                const telefono = document.getElementById('telefono');
+                const carrera = document.getElementById('carrera');
+                const actividad = document.getElementById('actividad');
 
-                                <input type="text" id="nombreCompleto" name="nombreCompleto" class="form-control"
-                                    required aria-required="true" aria-describedby="ayudaNombre">
+                let esValido = true;
 
-                            </div>
+                // Limpiar mensajes de error previos
+                document.querySelectorAll('.invalid-feedback').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
 
-                            <div id="ayudaNombre" class="form-text">
-                                Ingrese el nombre completo.
-                            </div>
-                        </div>
+                // Validar nombre completo
+                if (nombre.value.trim() === '') {
+                    mostrarError(nombre, 'El nombre completo es requerido');
+                    esValido = false;
+                } else if (!/^[a-záéíóúñ\s]+$/i.test(nombre.value.trim())) {
+                    mostrarError(nombre, 'El nombre solo puede contener letras y espacios');
+                    esValido = false;
+                }
 
-                        <!-- Identificación -->
-                        <div class="col-12 col-lg-6 mb-4">
-                            <label for="identificacion" class="form-label fw-semibold">
-                                Identificación
-                                <span class="text-danger" aria-hidden="true">*</span>
-                            </label>
+                // Validar identificación
+                if (identificacion.value.trim() === '') {
+                    mostrarError(identificacion, 'La identificación es requerida');
+                    esValido = false;
+                } else if (!/^\d+$/.test(identificacion.value.trim())) {
+                    mostrarError(identificacion, 'La identificación solo puede contener números');
+                    esValido = false;
+                }
 
-                            <div class="input-group">
-                                <span class="input-group-text">
-                                    <i class="fa-solid fa-id-badge" aria-hidden="true"></i>
-                                </span>
+                // Validar correo
+                if (correo.value.trim() === '') {
+                    mostrarError(correo, 'El correo es requerido');
+                    esValido = false;
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value.trim())) {
+                    mostrarError(correo, 'Ingrese un correo válido');
+                    esValido = false;
+                }
 
-                                <input type="text" id="identificacion" name="indentificacion" class="form-control" required
-                                    aria-required="true" aria-describedby="ayudaIdentificacion">
-                            </div>
+                // Validar teléfono
+                if (telefono.value.trim() === '') {
+                    mostrarError(telefono, 'El teléfono es requerido');
+                    esValido = false;
+                } else if (!/^\d+$/.test(telefono.value.trim()) || telefono.value.trim().length < 7) {
+                    mostrarError(telefono, 'Ingrese un teléfono válido (mínimo 7 dígitos)');
+                    esValido = false;
+                }
 
-                            <div id="ayudaIdentificacion" class="form-text">
-                                Ingrese su número de indentificación.
-                            </div>
-                        </div>
-                    </div>
+                // Validar carrera
+                if (carrera.value.trim() === '') {
+                    mostrarError(carrera, 'La carrera es requerida');
+                    esValido = false;
+                }
 
-                    <div class="row">
-                            <!-- Correo Electronico-->
-                        <div class="col-12 col-lg-6 mb-4">
-                            <label for="correoElectronico" class="form-label fw-semibold">
-                                Correo Electrónico
-                                <span class="text-danger" aria-hidden="true">*</span>
-                            </label>
+                // Validar actividad
+                if (actividad.value.trim() === '') {
+                    mostrarError(actividad, 'La actividad es requerida');
+                    esValido = false;
+                }
 
-                            <div class="input-group">
-                                <span class="input-group-text">
-                                    <i class="fa-solid fa-at" aria-hidden="true"></i>
-                                </span>
-
-                                <input type="email" id="correoElectronico" name="correoElectronico" class="form-control" required
-                                    aria-required="true" aria-describedby="ayudaCorreo">
-                            </div>
-
-                            <div id="ayudaCorreo" class="form-text">
-                                Ingrese su correo electrónico.
-                            </div>
-                        </div>
-
-                        <!--Telefono -->
-                        <div class="col-12 col-lg-6 mb-4">
-                            <label for="telefono" class="form-label fw-semibold">
-                                Teléfono
-                                <span class="text-danger" aria-hidden="true">*</span>
-                            </label>
-
-                            <div class="input-group">
-                                <span class="input-group-text">
-                                    <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                                </span>
-
-                                <input type="number" id="telefono" name="telefono" class="form-control" required
-                                    aria-required="true" aria-describedby="ayudaTelefono">
-                            </div>
-
-                            <div id="ayudaTelefono" class="form-text">
-                                Ingrese su número de teléfono.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                            <!--Carrera O Grupo -->
-                        <div class="col-12 col-lg-6 mb-4">
-                            <label for="carrera" class="form-label fw-semibold">
-                                Carrera o Grupo
-                                <span class="text-danger" aria-hidden="true">*</span>
-                            </label>
-
-                            <div class="input-group">
-                                <span class="input-group-text">
-                                    <i class="fa-solid fa-book" aria-hidden="true"></i>
-                                </span>
-
-                                <input type="text" id="carrera" name="carrera" class="form-control"
-                                    required aria-required="true" aria-describedby="ayudaCarrera">
-
-                            </div>
-
-                            <div id="ayudaCarrera" class="form-text">
-                                Ingrese la carrera o grupo al que pertenece
-                            </div>
-                        </div>
-
-                        <!--Actividad Seleccionada -->
-                        <div class="col-12 col-lg-6 mb-4">
-                            <label for="actividad" class="form-label fw-semibold">
-                                Actividad Seleccionada
-                                <span class="text-danger" aria-hidden="true">*</span>
-                            </label>
-
-                            <div class="input-group">
-                                <span class="input-group-text">
-                                    <i class="fa-solid fa-user" aria-hidden="true"></i>
-                                </span>
-
-                                <input type="text" id="actividad" name="actividad" class="form-control"
-                                    required aria-required="true" aria-describedby="ayudaActividad">
-
-                            </div>
-
-                            <div id="ayudaActividad" class="form-text">
-                                Ingrese la carrera o grupo al que pertenece
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!-- Comentarios -->
-                        <div class="mb-4">
-                            <label for="comentarios" class="form-label fw-semibold">
-                                Comentarios Opcionales
-                                <span class="text-muted">(Opcional)</span>
-                            </label>
-
-                            <div class="input-group">
-                                <span class="input-group-text">
-                                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
-                                </span>
-
-                                <textarea id="comentarios" name="comentarios" rows="4" class="form-control"
-                                    aria-describedby="ayudaComentarios"></textarea>
-                            </div>
-
-                            <div id="ayudaDescripcion" class="form-text">
-                                Puede agregar observaciones o detalles relevantes.
-                            </div>
-                        </div> 
-                    </div>
-
-                    
-
-
-                    <!-- BOTONES -->
-                    <div class="d-flex justify-content-end">
-
-                        <button class="btn-guardar-certificacion" id="btnGuardar">
-                            Registrar Inscripción
-                        </button>
-
-                    </div>
-
-                </form>
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        function validarFormulario(event) {
-            event.preventDefault();
-
-            const nombre = document.getElementById('nombreCompleto');
-            const identificacion = document.getElementById('identificacion');
-            const correo = document.getElementById('correoElectronico');
-            const telefono = document.getElementById('telefono');
-            const carrera = document.getElementById('carrera');
-            const actividad = document.getElementById('actividad');
-
-            let esValido = true;
-
-            // Limpiar mensajes de error previos
-            document.querySelectorAll('.invalid-feedback').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
-
-            // Validar nombre completo
-            if (nombre.value.trim() === '') {
-                mostrarError(nombre, 'El nombre completo es requerido');
-                esValido = false;
-            } else if (!/^[a-záéíóúñ\s]+$/i.test(nombre.value.trim())) {
-                mostrarError(nombre, 'El nombre solo puede contener letras y espacios');
-                esValido = false;
+                if (esValido) {
+                    alert('Formulario enviado correctamente');
+                    // Aquí irá el envío real del formulario
+                }
             }
 
-            // Validar identificación
-            if (identificacion.value.trim() === '') {
-                mostrarError(identificacion, 'La identificación es requerida');
-                esValido = false;
-            } else if (!/^\d+$/.test(identificacion.value.trim())) {
-                mostrarError(identificacion, 'La identificación solo puede contener números');
-                esValido = false;
+            function mostrarError(input, mensaje) {
+                input.classList.add('is-invalid');
+                const feedback = input.parentElement.querySelector('.invalid-feedback') || crearFeedback(input);
+                feedback.textContent = mensaje;
+                feedback.style.display = 'block';
             }
 
-            // Validar correo
-            if (correo.value.trim() === '') {
-                mostrarError(correo, 'El correo es requerido');
-                esValido = false;
-            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value.trim())) {
-                mostrarError(correo, 'Ingrese un correo válido');
-                esValido = false;
+            function crearFeedback(input) {
+                const feedback = document.createElement('div');
+                feedback.className = 'invalid-feedback';
+                feedback.style.display = 'block';
+                input.parentElement.appendChild(feedback);
+                return feedback;
             }
-
-            // Validar teléfono
-            if (telefono.value.trim() === '') {
-                mostrarError(telefono, 'El teléfono es requerido');
-                esValido = false;
-            } else if (!/^\d+$/.test(telefono.value.trim()) || telefono.value.trim().length < 7) {
-                mostrarError(telefono, 'Ingrese un teléfono válido (mínimo 7 dígitos)');
-                esValido = false;
-            }
-
-            // Validar carrera
-            if (carrera.value.trim() === '') {
-                mostrarError(carrera, 'La carrera es requerida');
-                esValido = false;
-            }
-
-            // Validar actividad
-            if (actividad.value.trim() === '') {
-                mostrarError(actividad, 'La actividad es requerida');
-                esValido = false;
-            }
-
-            if (esValido) {
-                alert('Formulario enviado correctamente');
-                // Aquí irá el envío real del formulario
-            }
-        }
-
-        function mostrarError(input, mensaje) {
-            input.classList.add('is-invalid');
-            const feedback = input.parentElement.querySelector('.invalid-feedback') || crearFeedback(input);
-            feedback.textContent = mensaje;
-            feedback.style.display = 'block';
-        }
-
-        function crearFeedback(input) {
-            const feedback = document.createElement('div');
-            feedback.className = 'invalid-feedback';
-            feedback.style.display = 'block';
-            input.parentElement.appendChild(feedback);
-            return feedback;
-        }
-    </script>
-</body>
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

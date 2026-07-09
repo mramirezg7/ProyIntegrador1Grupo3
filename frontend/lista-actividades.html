@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/lista-actividades.css">
+    <title>Inicio</title>
+</head>
+    <body>
+        <!--Lista Actividades-->
+            <div class="container-fluid topbar">
+                <div class="row h-100 d-flex justify-content-between align-items-center">
+                    <div class="col-12 col-lg-2">
+                        <a href="pagina-inicio.html" class="btn text-white fs-4 fw-bold">CampusFest</a>
+                    </div>
+
+                    <div class="col-12 col-lg-5 mb-4 mb-lg-0">
+                        <div class="row">
+                            <div class="col-lg-3 col-lg-12 d-flex justify-content-evenly">
+                                <a href="pagina-inicio.html" class="btn text-white border fw-medium">INICIO</a>
+                                <a href="lista-actividades.html" class="btn text-white border fw-medium pagina-activa">ACTIVIDADES</a>
+                                <a href="sector-agenda.html" class="btn text-white border fw-medium">AGENDA</a>
+                                <a href="stands.html" class="btn text-white border fw-medium">STANDS</a>
+                                <a href="sector-contacto.html" class="btn text-white border fw-medium">CONTACTO</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Main Screen-->
+            <div class="container my-5">
+                
+                <div class="row mb-5 text-center">
+                    <div class="col-12">
+                        <h1 class="fw-bold display-4">Catálogo de Actividades</h1>
+                    </div>
+                </div>
+
+                <!--Fila 1 Inicio-->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-4 justify-content-center">
+                    
+                    <div class="col"> <!--Robótica inicio-->
+                        <div class="card h-100 shadow-sm text-center p-3">
+                            <div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+                                <img src="../img/robotica.png" class="img-fluid max-height-100" alt="Nombre Actividad" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            
+                            <div class="card-body p-0 d-flex flex-column justify-content-between">
+                                <div class="text-start mb-3" style="font-size: 0.9rem;">
+                                    <h5 class="card-title fw-bold text-center mb-3">Torneo de Robótica</h5>
+                                    <p class="card-text mb-1"><strong>Categoría:</strong> Tecnología</p>
+                                    <p class="card-text mb-1"><strong>Fecha:</strong> 16 de Octubre</p>
+                                    <p class="card-text mb-1"><strong>Hora:</strong> 10:00 AM</p>
+                                    <p class="card-text mb-1"><strong>Lugar:</strong> Auditorio Principal</p>
+                                    <p class="card-text mb-1"><strong>Cupo Disponible:</strong> 15</p>
+                                    <p class="card-text mb-0">Ver detalle</p>
+                                </div>
+                                
+                                <div class="mt-auto">
+                                    <a href="http://127.0.0.1:5500/frontend/detalle-actividad-robotica.html" class="btn btn-outline-dark w-100 rounded-pill fw-medium">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--Robótica final-->
+
+                    <div class="col"> <!--Concierto Inicio-->
+                        <div class="card h-100 shadow-sm text-center p-3">
+                            <div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+                                <img src="../img/concierto-en-vivo.png" class="img-fluid" alt="Nombre Actividad" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <div class="card-body p-0 d-flex flex-column justify-content-between">
+                                <div class="text-start mb-3" style="font-size: 0.9rem;">
+                                    <h5 class="card-title fw-bold text-center mb-3">Concierto en Vivo</h5>
+                                    <p class="card-text mb-1"><strong>Categoría:</strong> Arte y Cultura</p>
+                                    <p class="card-text mb-1"><strong>Fecha:</strong> 17 de Octubre</p>
+                                    <p class="card-text mb-1"><strong>Hora:</strong> 4:00 PM</p>
+                                    <p class="card-text mb-1"><strong>Lugar:</strong> Plaza Central</p>
+                                    <p class="card-text mb-1"><strong>Cupo Disponible:</strong> 800</p>
+                                    <p class="card-text mb-0">Ver detalle</p>
+                                </div>
+                                <div class="mt-auto">
+                                    <a href="detalle-actividad-concierto.html" class="btn btn-outline-dark w-100 rounded-pill fw-medium">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--Robótica Final-->
+
+                    <div class="col"> <!--Feria Gastronómia Inicio-->
+                        <div class="card h-100 shadow-sm text-center p-3">
+                            <div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+                                <img src="../img/feria-gastronomica.png" class="img-fluid" alt="Nombre Actividad" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <div class="card-body p-0 d-flex flex-column justify-content-between">
+                                <div class="text-start mb-3" style="font-size: 0.9rem;">
+                                    <h5 class="card-title fw-bold text-center mb-3">Feria Gastronómica</h5>
+                                    <p class="card-text mb-1"><strong>Categoría:</strong> Gastronomía y Recreación</p>
+                                    <p class="card-text mb-1"><strong>Fecha:</strong> 17 de Octubre</p>
+                                    <p class="card-text mb-1"><strong>Hora:</strong> 4:00 PM</p>
+                                    <p class="card-text mb-1"><strong>Lugar:</strong> Plaza Central</p>
+                                    <p class="card-text mb-1"><strong>Cupo Disponible:</strong> 800</p>
+                                    <p class="card-text mb-0">Ver detalle</p>
+                                </div>
+                                <div class="mt-auto">
+                                    <a href="detalle-actividad-gastronomica.html" class="btn btn-outline-dark w-100 rounded-pill fw-medium">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--Feria Gastronómia Final-->
+
+                    <div class="col"> <!--Plantilla Inicio-->
+                        <div class="card h-100 shadow-sm text-center p-3">
+                            <div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+                                <img src="https://placehold.co/450x300/e0e0e0/666666?text=CampusFest" class="img-fluid" alt="Próxima actividad">
+                            </div>
+                            <div class="card-body p-0 d-flex flex-column justify-content-between">
+                                <div class="text-start mb-3" style="font-size: 0.9rem;">
+                                    <h5 class="card-title fw-bold text-center mb-3">Nombre Actividad</h5>
+                                    <p class="card-text mb-1"><strong>Categoría:</strong> Categoría</p>
+                                    <p class="card-text mb-1"><strong>Fecha:</strong> 17 de Octubre</p>
+                                    <p class="card-text mb-1"><strong>Hora:</strong> 2:00 PM</p>
+                                    <p class="card-text mb-1"><strong>Lugar:</strong> Plaza Central</p>
+                                    <p class="card-text mb-1"><strong>Cupo Disponible:</strong> 600</p>
+                                    <p class="card-text mb-0">Ver detalle</p>
+                                </div>
+                                <div class="mt-auto">
+                                    <a href="#" class="btn btn-outline-dark w-100 rounded-pill fw-medium">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--Plantilla Final-->
+
+                    <div class="col"> <!--Plantilla Inicio-->
+                        <div class="card h-100 shadow-sm text-center p-3">
+                            <div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+                                <img src="https://placehold.co/450x300/e0e0e0/666666?text=CampusFest" class="img-fluid" alt="Próxima actividad">
+                            </div>
+                            <div class="card-body p-0 d-flex flex-column justify-content-between">
+                                <div class="text-start mb-3" style="font-size: 0.9rem;">
+                                    <h5 class="card-title fw-bold text-center mb-3">Nombre Actividad</h5>
+                                    <p class="card-text mb-1"><strong>Categoría:</strong> Categoría</p>
+                                    <p class="card-text mb-1"><strong>Fecha:</strong> 17 de Octubre</p>
+                                    <p class="card-text mb-1"><strong>Hora:</strong> 2:00 PM</p>
+                                    <p class="card-text mb-1"><strong>Lugar:</strong> Plaza Central</p>
+                                    <p class="card-text mb-1"><strong>Cupo Disponible:</strong> 600</p>
+                                    <p class="card-text mb-0">Ver detalle</p>
+                                </div>
+                                <div class="mt-auto">
+                                    <a href="#" class="btn btn-outline-dark w-100 rounded-pill fw-medium">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--Plantilla Final-->
+                </div> <!--Fila 1 Final-->
+
+                <!--Fila 2 Inicio-->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-4 justify-content-center">
+                    
+                    <div class="col"> <!--Plantilla Inicio-->
+                        <div class="card h-100 shadow-sm text-center p-3">
+                            <div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+                                <img src="https://placehold.co/450x300/e0e0e0/666666?text=CampusFest" class="img-fluid" alt="Próxima actividad">
+                            </div>
+                            <div class="card-body p-0 d-flex flex-column justify-content-between">
+                                <div class="text-start mb-3" style="font-size: 0.9rem;">
+                                    <h5 class="card-title fw-bold text-center mb-3">Nombre Actividad</h5>
+                                    <p class="card-text mb-1"><strong>Categoría:</strong> Categoría</p>
+                                    <p class="card-text mb-1"><strong>Fecha:</strong> 17 de Octubre</p>
+                                    <p class="card-text mb-1"><strong>Hora:</strong> 2:00 PM</p>
+                                    <p class="card-text mb-1"><strong>Lugar:</strong> Plaza Central</p>
+                                    <p class="card-text mb-1"><strong>Cupo Disponible:</strong> 600</p>
+                                    <p class="card-text mb-0">Ver detalle</p>
+                                </div>
+                                <div class="mt-auto">
+                                    <a href="#" class="btn btn-outline-dark w-100 rounded-pill fw-medium">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--Plantilla Final-->
+
+                    <div class="col"> <!--Plantilla Inicio-->
+                        <div class="card h-100 shadow-sm text-center p-3">
+                            <div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+                                <img src="https://placehold.co/450x300/e0e0e0/666666?text=CampusFest" class="img-fluid" alt="Próxima actividad">
+                            </div>
+                            <div class="card-body p-0 d-flex flex-column justify-content-between">
+                                <div class="text-start mb-3" style="font-size: 0.9rem;">
+                                    <h5 class="card-title fw-bold text-center mb-3">Nombre Actividad</h5>
+                                    <p class="card-text mb-1"><strong>Categoría:</strong> Categoría</p>
+                                    <p class="card-text mb-1"><strong>Fecha:</strong> 17 de Octubre</p>
+                                    <p class="card-text mb-1"><strong>Hora:</strong> 2:00 PM</p>
+                                    <p class="card-text mb-1"><strong>Lugar:</strong> Plaza Central</p>
+                                    <p class="card-text mb-1"><strong>Cupo Disponible:</strong> 600</p>
+                                    <p class="card-text mb-0">Ver detalle</p>
+                                </div>
+                                <div class="mt-auto">
+                                    <a href="#" class="btn btn-outline-dark w-100 rounded-pill fw-medium">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--Plantilla Final-->
+
+                    <div class="col"> <!--Plantilla Inicio-->
+                        <div class="card h-100 shadow-sm text-center p-3">
+                            <div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+                                <img src="https://placehold.co/450x300/e0e0e0/666666?text=CampusFest" class="img-fluid" alt="Próxima actividad">
+                            </div>
+                            <div class="card-body p-0 d-flex flex-column justify-content-between">
+                                <div class="text-start mb-3" style="font-size: 0.9rem;">
+                                    <h5 class="card-title fw-bold text-center mb-3">Nombre Actividad</h5>
+                                    <p class="card-text mb-1"><strong>Categoría:</strong> Categoría</p>
+                                    <p class="card-text mb-1"><strong>Fecha:</strong> 17 de Octubre</p>
+                                    <p class="card-text mb-1"><strong>Hora:</strong> 2:00 PM</p>
+                                    <p class="card-text mb-1"><strong>Lugar:</strong> Plaza Central</p>
+                                    <p class="card-text mb-1"><strong>Cupo Disponible:</strong> 600</p>
+                                    <p class="card-text mb-0">Ver detalle</p>
+                                </div>
+                                <div class="mt-auto">
+                                    <a href="#" class="btn btn-outline-dark w-100 rounded-pill fw-medium">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--Plantilla Final-->
+
+                    <div class="col"> <!--Plantilla Inicio-->
+                        <div class="card h-100 shadow-sm text-center p-3">
+                            <div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+                                <img src="https://placehold.co/450x300/e0e0e0/666666?text=CampusFest" class="img-fluid" alt="Próxima actividad">
+                            </div>
+                            <div class="card-body p-0 d-flex flex-column justify-content-between">
+                                <div class="text-start mb-3" style="font-size: 0.9rem;">
+                                    <h5 class="card-title fw-bold text-center mb-3">Nombre Actividad</h5>
+                                    <p class="card-text mb-1"><strong>Categoría:</strong> Categoría</p>
+                                    <p class="card-text mb-1"><strong>Fecha:</strong> 15 de Octubre</p>
+                                    <p class="card-text mb-1"><strong>Hora:</strong> 6:00 PM</p>
+                                    <p class="card-text mb-1"><strong>Lugar:</strong> Plaza Central</p>
+                                    <p class="card-text mb-1"><strong>Cupo Disponible:</strong> 300</p>
+                                    <p class="card-text mb-0">Ver detalle</p>
+                                </div>
+                                <div class="mt-auto">
+                                    <a href="#" class="btn btn-outline-dark w-100 rounded-pill fw-medium">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--Plantilla Final-->
+
+                    <div class="col"> <!--Plantilla Inicio-->
+                        <div class="card h-100 shadow-sm text-center p-3">
+                            <div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+                                <img src="https://placehold.co/450x300/e0e0e0/666666?text=CampusFest" class="img-fluid" alt="Próxima actividad">
+                            </div>
+                            <div class="card-body p-0 d-flex flex-column justify-content-between">
+                                <div class="text-start mb-3" style="font-size: 0.9rem;">
+                                    <h5 class="card-title fw-bold text-center mb-3">Nombre Actividad</h5>
+                                    <p class="card-text mb-1"><strong>Categoría:</strong> Categoría</p>
+                                    <p class="card-text mb-1"><strong>Fecha:</strong> 17 de Octubre</p>
+                                    <p class="card-text mb-1"><strong>Hora:</strong> 2:00 PM</p>
+                                    <p class="card-text mb-1"><strong>Lugar:</strong> Plaza Central</p>
+                                    <p class="card-text mb-1"><strong>Cupo Disponible:</strong> 600</p>
+                                    <p class="card-text mb-0">Ver detalle</p>
+                                </div>
+                                <div class="mt-auto">
+                                    <a href="#" class="btn btn-outline-dark w-100 rounded-pill fw-medium">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--Plantilla Final-->
+                </div> <!--Fila 2 Final-->
+           </div>
+        <footer></footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
