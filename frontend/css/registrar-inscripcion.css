@@ -54,3 +54,14 @@ body{
     background-color: var(--mostaza);
 }
 
+.is-invalid {
+    border-color: var(--rojo) !important;
+}
+
+.invalid-feedback {
+    color: var(--rojo);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
