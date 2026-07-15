@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { type } = require("node:os");
 
 // Esquema "Estudiante"
 const schemaEstudiante = new mongoose.Schema({
@@ -6,29 +7,33 @@ const schemaEstudiante = new mongoose.Schema({
         type: String,
         required: true
     },
-    correoElectronico: {
+    identificacion: {
         type: String,
         required: true,
         unique: true // Evita que se registren correos duplicados
     },
-    telefono: {
-        type: String,
-        required: true
-    },
-    carne: {
+    correo: {
         type: String,
         required: true,
-        unique: true // El carné o identificación universitaria debe ser único
+        unique: true
+    },
+    telefono: {
+        type: String,
+        required: true,
+    },
+    carrera: {
+            type: String,
+            required: true,
+    },
+    actividad:{
+        type: String,
+        required: true,
     },
     estadoAcademico: {
         activo: {
             type: Boolean,
             default: true
         },
-        carrera: {
-            type: String,
-            default: "No especificada"
-        }
     }
 });
 
