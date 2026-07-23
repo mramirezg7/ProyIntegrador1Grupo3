@@ -11,7 +11,7 @@ const schemaEstudiante = new mongoose.Schema({
     identificacion: {
         type: String,
         required: true,
-        unique: true // Evita que se registren correos duplicados
+        unique: true // Evita que se registren identificaciones duplicadas
     },
     correo: {
         type: String,
