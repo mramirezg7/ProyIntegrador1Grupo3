@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const { type } = require("node:os");
+const Schema = mongoose.Schema;
+
 
 // Esquema "Estudiante"
 const schemaEstudiante = new mongoose.Schema({
@@ -25,10 +26,12 @@ const schemaEstudiante = new mongoose.Schema({
             type: String,
             required: true,
     },
-    actividad:{
-        type: String,
-        required: true,
-    },
+    actividades: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Actividad"
+        }
+    ],
     estadoAcademico: {
         activo: {
             type: Boolean,

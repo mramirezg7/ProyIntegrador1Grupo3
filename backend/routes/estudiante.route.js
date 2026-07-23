@@ -5,12 +5,12 @@ const Estudiante = require("../models/estudiante.model");
 // 1. Guardar/Registrar un estudiante
 router.post("/", async (req, res) => {
     try {
-        const { nombreCompleto, correoElectronico, carne, telefono } = req.body;
+        const { nombreCompleto, identificacion, correo, telefono, carrera } = req.body;
 
         // Validar los campos obligatorios del estudiante (según nuestro formulario de contacto/inscripción)
-        if (!nombreCompleto || !correoElectronico || !carne || !telefono) {
+        if (!nombreCompleto || !identificacion || !correo || !telefono || !carrera) {
             return res.status(400).json({ 
-                mensajeError: "El nombre completo, correo, teléfono y carné son obligatorios." 
+                mensajeError: "El nombre completo, identificación, correo, teléfono y carrera son obligatorios." 
             });
         }
 
@@ -28,9 +28,11 @@ router.post("/", async (req, res) => {
 Ejemplo de JSON para probar en Postman/Thunder Client:
 {
   "nombreCompleto": "Juan Pérez",
-  "correoElectronico": "juan.perez@campusfest.edu",
+  "identificacion": "20260102",
   "telefono": "+506 8888-8888",
-  "carne": "20260102",
+  "correo": "juan.perez@campusfest.edu"
+  "telefono": "+506 8888-8888"
+  "carrera": "Ingeniera de Software"
   "estadoAcademico": {
      "activo": true,
      "carrera": "Ingeniería en Sistemas"
@@ -101,5 +103,20 @@ router.get("/top-carreras/:top", async (req, res) => {
         res.status(500).json({ msj: "Error al obtener el top de carreras", error });
     }
 });
+
+router.delete("/:id", async (req, res) => {
+    const {id} = req. params;
+
+    try{
+        const estudiante = await Estudiante.findByIdAndUpdate(id);
+        if(!estudiante){
+            return res.status(404).json({ error: "Estudiante no encontrado"});
+        }
+        res.status(200).json({ mensaje: "Estudiante Eliminado"})
+    } catch (error){
+        res.status(400).json({ mensajeError: error.message });
+    }
+});
+
 
 module.exports = router;
