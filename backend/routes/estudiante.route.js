@@ -77,11 +77,11 @@ router.get("/top-carreras/:top", async (req, res) => {
             return res.status(400).json({ msj: "El parámetro top debe ser un número mayor a 0." });
         }
 
-        // Aggregate, agrupando por el subdocumento estadoAcademico.carrera
+        // Aggregate, agrupando por la carrera del estudiante
         const carrerasMasPopulares = await Estudiante.aggregate([
             {
                 $group: {
-                    _id: "$estadoAcademico.carrera",
+                    _id: "$carrera",
                     cantidadEstudiantes: {
                         $sum: 1
                     }
@@ -108,7 +108,7 @@ router.delete("/:id", async (req, res) => {
     const {id} = req. params;
 
     try{
-        const estudiante = await Estudiante.findByIdAndUpdate(id);
+        const estudiante = await Estudiante.findByIdAndDelete(id);
         if(!estudiante){
             return res.status(404).json({ error: "Estudiante no encontrado"});
         }

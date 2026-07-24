@@ -1,47 +1,27 @@
-const { act } = require("react");
-
-const nombre = document.getElementById('nombreCompleto');
-const identificacion = document.getElementById('identificacion');
-const correo = document.getElementById('correoElectronico');
-const telefono = document.getElementById('telefono');
-const carrera = document.getElementById('carrera');
-const actividad = document.getElementById('actividad');
-const btnRegistarEstudiante = document.getElementById('btnGuardar');
-
-async function btnRegistarEstudiante() {
+async function registrarEstudiante() {
     const datosEstudiante = {
-        nombreCompleto: nombre.value,
-        identificacion: identificacion.value,
-        correo: correo.value,
-        telefono: telefono.value,
-        carrera: carrera.value,
-        actividad: actividad.value
+        nombreCompleto: document.getElementById('nombreCompleto').value,
+        identificacion: document.getElementById('identificacion').value,
+        correo: document.getElementById('correoElectronico').value,
+        telefono: document.getElementById('telefono').value,
+        carrera: document.getElementById('carrera').value
     };
-    fetch("http://localhost:3000//estudiantes", {
-        method: "POST",
-        headers: {
-            "Content-Type": "Application/json"
-        },
-        body: JSON.stringify(datosColaborador)
-    }).then(response => {
-        if(!response.ok){
-            Swal.fire({
-                icon: "error",
-                title: "No se puede registrar el estudiante",
-                text: response,
-                confirmButtonText: "Aceptar"
-            });
-        } else{
-            Swal.fire({
-                icon: "success",
-                title: "Estudiante registrado correctamente",
-                text: response,
-                confirmButtonText: "Aceptar"
-            });
 
+    try {
+        const respuesta = await fetch('http://localhost:3000/estudiantes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datosEstudiante)
+        });
+
+        if (respuesta.ok) {
+            alert('Estudiante registrado correctamente');
+        } else {
+            alert('No se pudo registrar el estudiante');
         }
-    }).catch(error => {
+    } catch (error) {
         console.log(error);
-    });
-    
+    }
 }
