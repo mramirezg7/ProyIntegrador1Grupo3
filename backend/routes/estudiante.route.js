@@ -31,7 +31,6 @@ Ejemplo de JSON para probar en Postman/Thunder Client:
   "identificacion": "20260102",
   "telefono": "+506 8888-8888",
   "correo": "juan.perez@campusfest.edu"
-  "telefono": "+506 8888-8888"
   "carrera": "Ingeniera de Software"
   "estadoAcademico": {
      "activo": true,
