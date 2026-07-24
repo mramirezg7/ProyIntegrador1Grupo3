@@ -1,3 +1,6 @@
+const btnRegistrarEstudiante = document.getElementById("btnGuardar");
+
+
 async function registrarEstudiante() {
     const datosEstudiante = {
         nombreCompleto: document.getElementById('nombreCompleto').value,
@@ -24,4 +27,6 @@ async function registrarEstudiante() {
     } catch (error) {
         console.log(error);
     }
-}
+};
+
+btnRegistrarEstudiante.addEventListener("click", registrarEstudiante);
