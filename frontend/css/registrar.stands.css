@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@600;700&display=swap');
 
-:root{
+:root {
     --azulOscuro: #164a98;
     --azulClaro: #006AEA;
     --celeste: #9CC8FF;
@@ -19,41 +19,66 @@
     --morado: #712c86;
 }
 
-body{
+body {
     font-family: 'Inter', sans-serif;
 }
 
-.borde-formulario{
-    border: transparent;
+/* Sombra y bordes del contenedor del formulario */
+.borde-formulario {
+    border: none !important;
     border-radius: 8px;
     box-shadow: 0px 2px 3px rgba(0,0,0,1);
 }
 
-
-
-.topbar{
+/* Barra superior */
+.topbar {
     background-color: var(--azulOscuro);
     height: 85px;
     border-bottom: 5px solid var(--grisOscuro);
 }
 
-.btn-guardar-certificacion{
+/* Botón principal de registro */
+.btn-registrar-stand {
     background-color: var(--mostaza);
-    padding: 10px;
+    color: #000;
+    padding: 10px 25px;
     border: none;
     border-radius: 10px;
     transition: 0.3s;
     font-weight: bold;
 }
 
-.btn-guardar-certificacion:hover{
+.btn-registrar-stand:hover {
     background-color: #fab003;
+    color: #000;
 }
 
-.btn-guardar-certificacion:active{
+.btn-registrar-stand:active {
     background-color: var(--mostaza);
 }
 
+/* Ajuste de iconos dentro de los inputs */
+.input-group-text {
+    border-color: #dee2e6;
+    color: #495057;
+    min-width: 45px;
+    justify-content: center;
+}
+
+.input-group .form-control:focus, 
+.input-group .form-select:focus {
+    box-shadow: none;
+    border-color: var(--azulClaro);
+}
+
+/* Texto explicativo debajo de los inputs */
+.form-text {
+    font-size: 0.825rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+/* Mensajes y campos de validación */
 .is-invalid {
     border-color: var(--rojo) !important;
 }
@@ -64,4 +89,3 @@ body{
     margin-top: 0.25rem;
     display: block;
 }
-
