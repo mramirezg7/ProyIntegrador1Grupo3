@@ -1,6 +1,5 @@
-const btnRegistrarEstudiante = document.getElementById("btnGuardar");
-
-
+// Esta función se llama desde validarFormulario() (registrar-inscripcion.html)
+// una vez que el formulario pasa todas las validaciones
 async function registrarEstudiante() {
     const datosEstudiante = {
         nombreCompleto: document.getElementById('nombreCompleto').value,
@@ -28,5 +27,3 @@ async function registrarEstudiante() {
         console.log(error);
     }
 };
-
-btnRegistrarEstudiante.addEventListener("click", registrarEstudiante);

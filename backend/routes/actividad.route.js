@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
         // Validar que el tipo esté dentro de los valores permitidos por el enum
         const estadosPermitidos = ['Lleno', 'Disponible'];
         if (!estadosPermitidos.includes(estado)) {
-            return res.status(400).json({ mensajeError: "El estado debe ser uno de: " + tiposPermitidos.join(', ')});
+            return res.status(400).json({ mensajeError: "El estado debe ser uno de: " + estadosPermitidos.join(', ')});
         }
 
         const nuevaActividad = new Actividad(req.body);
