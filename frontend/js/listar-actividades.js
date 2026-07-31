@@ -59,7 +59,7 @@ async function obtenerActividades() {
                         </div>
 
                         <div class="mt-auto">
-                            <a href="${paginaDetalle}" class="btn btn-outline-dark w-100 rounded-pill fw-medium">Ver detalles</a>
+                            <a href="${paginaDetalle}" class="btn btn-warning w-100 rounded-pill fw-bold">Ver detalles</a>
                         </div>
                     </div>
                 </div>
