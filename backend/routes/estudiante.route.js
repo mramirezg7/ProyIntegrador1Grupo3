@@ -140,7 +140,7 @@ router.put("/agregar-actividad", async(req, res) =>{
 })
 
 router.delete("/:id", async (req, res) => {
-    const {id} = req. params;
+    const {id} = req.params;
 
     try{
         const estudiante = await Estudiante.findByIdAndDelete(id);
