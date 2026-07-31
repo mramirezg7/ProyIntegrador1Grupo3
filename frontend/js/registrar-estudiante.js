@@ -1,3 +1,7 @@
+const btnInscribir = document.getElementById("btnInscribirEstudiante")
+const listaActividades = document.getElementById("stlActividad")
+
+mostrarActividades();
 
 function validarFormulario(event) {
     event.preventDefault();
@@ -14,6 +18,7 @@ function validarFormulario(event) {
     // Limpiar mensajes de error previos
     document.querySelectorAll('.invalid-feedback').forEach(el => el.style.display = 'none');
     document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+    
 
     // Validar nombre completo
     if (nombre.value.trim() === '') {
@@ -65,6 +70,7 @@ function validarFormulario(event) {
 
     if (esValido) {
         registrarEstudiante();
+        
     }
 }
 
@@ -119,4 +125,24 @@ async function registrarEstudiante() {
     } catch (error) {
         console.log(error);
     }
+};
+
+
+async function mostrarActividades(){
+    fetch("http://localhost:3000/actividades/", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(response => response.json())
+    .then(data =>{
+        listaActividades.innerHTML = "";
+
+        data.forEach(actividad => {
+            const nuevaOpcion = document.createElement("option");
+            nuevaOpcion.value = actividad.nombre;
+            nuevaOpcion.textContent = actividad.nombre;
+            listaActividades.appendChild(nuevaOpcion);
+        })
+    });
 };
