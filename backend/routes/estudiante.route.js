@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Estudiante = require("../models/estudiante.model"); 
+const Actividad = require("../models/actividad.model");
 
 // 1. Guardar/Registrar un estudiante
 router.post("/", async (req, res) => {
@@ -42,7 +43,7 @@ Ejemplo de JSON para probar en Postman/Thunder Client:
 // 2. Obtener todos los estudiantes registrados
 router.get("/", async (req, res) => {
     try {
-        const estudiantes = await Estudiante.find();
+        const estudiantes = await Estudiante.find() .populate("actividades");
         res.json(estudiantes);
     } catch (error) {
         res.status(500).json({ mensajeError: "Error al obtener la lista de estudiantes." });
@@ -102,6 +103,41 @@ router.get("/top-carreras/:top", async (req, res) => {
         res.status(500).json({ msj: "Error al obtener el top de carreras", error });
     }
 });
+
+// Agregar actividad a un estudiante
+router.put("/agregar-actividad", async(req, res) =>{
+    const {identificacion, actividadId} = req.body;
+
+    if(!identificacion || !actividadId){
+        return res.status(400).json({mensajeError: "Identificación y ID de la actividad son obligatorios"})
+    }
+
+    try{
+        //Verificar que la actividad existe
+        const actividad = await Actividad.findById(actividadId);
+        if (!actividad){
+            return res.status(404).json({error: "Actividad no encontrada"});
+        }
+
+        //Buscar el estudiante y agregar la actividad
+        const estudiante = await Estudiante.findOne({identificacion});
+        if(!estudiante){
+            return res.status(404).json({error: "Estudiante no encontrado"})
+        }
+
+        if(!estudiante.actividades.includes(actividadId)){
+            estudiante.actividades.push(actividadId);
+            await estudiante.save();
+        }else{
+            return res.status(404).json({error: "Estudiante ya se encuentra registrado en la actividad"})
+        }
+
+        res.status(200).json({msj: "Actividad agregada al estudiante", estudiante});
+
+    }catch(error){
+        res.status(400).json({mensajeError: error.message});
+    }
+})
 
 router.delete("/:id", async (req, res) => {
     const {id} = req. params;
