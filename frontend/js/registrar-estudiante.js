@@ -101,7 +101,7 @@ async function registrarEstudiante() {
     };
 
     try {
-        const respuesta = await fetch('http://localhost:3000/estudiantes', {
+        const respuestaPost = await fetch('http://localhost:3000/estudiantes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -129,7 +129,7 @@ async function registrarEstudiante() {
 
 
 async function mostrarActividades(){
-    fetch("http://localhost:3000/actividades/", {
+    fetch("http://localhost:3000/actividades", {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
