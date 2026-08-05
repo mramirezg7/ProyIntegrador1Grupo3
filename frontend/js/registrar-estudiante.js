@@ -1,5 +1,6 @@
-const btnInscribir = document.getElementById("btnInscribirEstudiante")
-const listaActividades = document.getElementById("stlActividad")
+const btnInscribir = document.getElementById("btnInscribirEstudiante");
+const listaActividades = document.getElementById("stlActividad");
+
 
 mostrarActividades();
 
@@ -11,7 +12,7 @@ function validarFormulario(event) {
     const correo = document.getElementById('correoElectronico');
     const telefono = document.getElementById('telefono');
     const carrera = document.getElementById('carrera');
-    const actividad = document.getElementById('actividad');
+    const actividad = document.getElementById('stlActividad');
 
     let esValido = true;
 
@@ -100,49 +101,77 @@ async function registrarEstudiante() {
         carrera: document.getElementById('carrera').value
     };
 
+    // Leemos los datos en tiempo de ejecución (no arriba de todo el script)
+    const datosActividadEstudiante = {
+        identificacion: document.getElementById('identificacion').value,
+        actividadId: document.getElementById('stlActividad').value
+    };
+
     try {
+        // 1. Guardar estudiante (POST)
         const respuestaPost = await fetch('http://localhost:3000/estudiantes', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(datosEstudiante)
         });
 
-        if (respuesta.ok) {
+        if (!respuestaPost.ok) {
+            Swal.fire({
+                icon: "error",
+                title: "No se pudo registrar el estudiante",
+                confirmButtonText: "Aceptar"
+            });
+            return; // Detener flujo si falla el POST
+        }
+
+        // 2. Asignar actividad (PUT)
+        const respuestaPut = await fetch("http://localhost:3000/estudiantes/agregar-actividad", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(datosActividadEstudiante)
+        });
+
+        if (respuestaPut.ok) {
             Swal.fire({
                 icon: "success",
-                title: "Estudiante inscrito correctamente.",
+                title: "Estudiante inscrito y actividad asignada con éxito.",
                 confirmButtonText: "Aceptar"
             });
         } else {
             Swal.fire({
                 icon: "error",
-                title: "El estudiante no puede ser inscrito.",
+                title: "Estudiante creado, pero no se pudo asignar la actividad.",
                 confirmButtonText: "Aceptar"
             });
         }
+
     } catch (error) {
-        console.log(error);
+        console.error(error);
+        Swal.fire({
+            icon: "error",
+            title: "Error de conexión con el servidor",
+            confirmButtonText: "Aceptar"
+        });
     }
-};
+}
 
 
 async function mostrarActividades(){
     fetch("http://localhost:3000/actividades", {
         method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(response => response.json())
-    .then(data =>{
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(response => response.json())
+    .then(data => {
         listaActividades.innerHTML = "";
-
         data.forEach(actividad => {
             const nuevaOpcion = document.createElement("option");
-            nuevaOpcion.value = actividad.nombre;
-            nuevaOpcion.textContent = actividad.nombre;
+            nuevaOpcion.value = actividad._id; // 
+            nuevaOpcion.textContent = `${actividad.nombre} (${actividad.estado})`;
+            if (actividad.estado === 'Lleno') {
+                nuevaOpcion.disabled = true; // evita que elijan una llena
+            }
             listaActividades.appendChild(nuevaOpcion);
-        })
+        });
     });
 };
