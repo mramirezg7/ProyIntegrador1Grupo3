@@ -16,21 +16,11 @@ async function obtenerActividades() {
         for (let i = 0; i < actividades.length; i++) {
             const actividad = actividades[i];
 
-            // Definir la imagen y detalle según el nombre
+            // 1. Imagen por defecto para las actividades
             let imagen = "../img/campusFest.jpg";
-            let paginaDetalle = "#";
-            const nombre = actividad.nombre.toLowerCase();
 
-            if (nombre.includes("robot")) {
-                imagen = "../img/robotica.png";
-                paginaDetalle = "detalle-actividad-robotica.html";
-            } else if (nombre.includes("concierto")) {
-                imagen = "../img/concierto-en-vivo.png";
-                paginaDetalle = "detalle-actividad-concierto.html";
-            } else if (nombre.includes("gastron")) {
-                imagen = "../img/feria-gastronomica.png";
-                paginaDetalle = "detalle-actividad-gastronomica.html";
-            }
+            // 2. CAMBIO CLAVE: Pasar el ID único de la actividad en la URL
+            const paginaDetalle = `detalle-actividad.html?id=${actividad._id}`;
 
             // Asignar color de la insignia de estado
             let colorEstado = "bg-danger";
@@ -38,7 +28,7 @@ async function obtenerActividades() {
                 colorEstado = "bg-success";
             }
 
-            const fechaFormateada = actividad.fecha.split("T")[0];
+            const fechaFormateada = actividad.fecha ? actividad.fecha.split("T")[0] : "";
 
             html += `
             <div class="col">

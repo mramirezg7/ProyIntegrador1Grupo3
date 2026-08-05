@@ -37,6 +37,22 @@ router.get("/", async (req, res) => {
     }
 });
 
+// Obtener una actividad por su ID
+router.get("/:id", async (req, res) => {
+    try {
+        const actividad = await Actividad.findById(req.params.id);
+        
+        if (!actividad) {
+            return res.status(404).json({ mensajeError: "Actividad no encontrada" });
+        }
+        
+        res.json(actividad);
+    } catch (error) {
+        res.status(500).json({ msj: "Error al obtener la actividad", error: error.message });
+    }
+});
+
+
 // Eliminar una actividad
 router.delete("/:id", async (req, res) => {
     const {id} = req.params;
