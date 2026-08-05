@@ -37,6 +37,13 @@ body{
     border-bottom: 5px solid var(--grisOscuro);
 }
 
+/* Resalta en el menú la página en la que se encuentra el usuario */
+.pagina-activa {
+    font-weight: 800 !important; /* Aplica un bold más marcado */
+    background-color: rgba(255, 255, 255, 0.2); /* Para un ligero fondo translúcido */
+    border-color: #fff !important;
+}
+
 .btn-guardar-certificacion{
     background-color: var(--mostaza);
     padding: 10px;
