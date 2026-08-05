@@ -1,11 +1,21 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const params = new URLSearchParams(window.location.search);
     const idActividad = params.get("id");
+    
 
     if (!idActividad) {
         alert("No se especificó ninguna actividad");
         window.location.href = "lista-actividades.html";
         return;
+    }
+
+    // Evento del botón Inscribirme
+    const btnInscribirme = document.getElementById("btnInscribirme");
+
+    if (btnInscribirme) {
+        btnInscribirme.addEventListener("click", () => {
+            window.location.href = `registrar-inscripcion.html?id=${idActividad}`;
+        });
     }
 
     try {
@@ -25,7 +35,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("det-cupo").textContent = actividad.cupoMaximo || "";
         document.getElementById("det-estado").textContent = actividad.estado || "";
 
-        // Renderizar Requisitos (maneja tanto arreglos como texto regular)
+        // Si la actividad está llena o cancelada, deshabilitar el botón
+        if (actividad.estado === "Lleno" || actividad.cupoMaximo <= 0) {
+            btnInscribirme.disabled = true;
+            btnInscribirme.classList.replace("btn-warning", "btn-secondary");
+            btnInscribirme.textContent = "Cupo Lleno";
+        }
+
+        // Renderizar Requisitos
         const contRequisitos = document.getElementById("det-requisitos");
         if (Array.isArray(actividad.requisitos) && actividad.requisitos.length > 0) {
             let ul = document.createElement("ul");
