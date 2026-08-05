@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    // 1. Obtener el ID de la URL (?id=...)
     const params = new URLSearchParams(window.location.search);
     const idActividad = params.get("id");
 
@@ -10,34 +9,37 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     try {
-        // 2. Consultar el backend por la actividad específica
         const respuesta = await fetch(`http://localhost:3000/actividades/${idActividad}`);
         
         if (!respuesta.ok) throw new Error("No se encontró la actividad");
         
         const actividad = await respuesta.json();
 
-        // 3. Insertar datos en el HTML
-        document.getElementById("det-nombre").textContent = actividad.nombre;
-        document.getElementById("det-categoria").textContent = actividad.categoria;
+        // Mapear campos dinámicos
+        document.getElementById("det-nombre").textContent = actividad.nombre || "Sin nombre";
+        document.getElementById("det-descripcion").textContent = actividad.descripcion || "Sin descripción disponible para esta actividad.";
+        document.getElementById("det-categoria").textContent = actividad.categoria || "";
         document.getElementById("det-fecha").textContent = actividad.fecha ? actividad.fecha.split("T")[0] : "";
-        document.getElementById("det-hora").textContent = actividad.hora;
-        document.getElementById("det-lugar").textContent = actividad.lugar;
-        document.getElementById("det-cupo").textContent = actividad.cupoMaximo;
-        document.getElementById("det-estado").textContent = actividad.estado;
+        document.getElementById("det-hora").textContent = actividad.hora || "";
+        document.getElementById("det-lugar").textContent = actividad.lugar || "";
+        document.getElementById("det-cupo").textContent = actividad.cupoMaximo || "";
+        document.getElementById("det-estado").textContent = actividad.estado || "";
 
-        // Renderizar lista de requisitos
-        const listaRequisitos = document.getElementById("det-requisitos");
-        listaRequisitos.innerHTML = "";
-        
+        // Renderizar Requisitos (maneja tanto arreglos como texto regular)
+        const contRequisitos = document.getElementById("det-requisitos");
         if (Array.isArray(actividad.requisitos) && actividad.requisitos.length > 0) {
+            let ul = document.createElement("ul");
             actividad.requisitos.forEach(req => {
-                const li = document.createElement("li");
+                let li = document.createElement("li");
                 li.textContent = req;
-                listaRequisitos.appendChild(li);
+                ul.appendChild(li);
             });
+            contRequisitos.innerHTML = "";
+            contRequisitos.appendChild(ul);
+        } else if (typeof actividad.requisitos === "string" && actividad.requisitos.trim() !== "") {
+            contRequisitos.textContent = actividad.requisitos;
         } else {
-            listaRequisitos.innerHTML = "<li>Sin requisitos especiales.</li>";
+            contRequisitos.textContent = "Sin requisitos especiales para esta actividad.";
         }
 
     } catch (error) {

@@ -8,25 +8,62 @@
     <title>Detalle de Actividad</title>
 </head>
 <body>
-    <div class="container my-5">
-        <h1 class="fw-bold mb-4" id="det-nombre">Cargando actividad...</h1>
-        <div class="row">
-            <div class="col-md-5 mb-4">
-                <img id="det-imagen" src="../img/campusFest.jpg" class="img-fluid rounded shadow" alt="Actividad">
+
+    <!-- HEADER / TOPBAR -->
+    <header class="container-fluid topbar">
+        <div class="row h-100 d-flex justify-content-between align-items-center">
+            <div class="col-12 col-lg-2">
+                <a href="pagina-inicio.html" class="btn text-white fs-4 fw-bold">CampusFest</a>
             </div>
+
+            <div class="col-12 col-lg-5 mb-4 mb-lg-0">
+                <div class="row">
+                    <div class="col-lg-3 col-lg-12 d-flex justify-content-evenly">
+                        <a href="pagina-inicio.html" class="btn text-white border fw-medium">INICIO</a>
+                        <a href="lista-actividades.html" class="btn text-white border fw-medium pagina-activa">ACTIVIDADES</a>
+                        <a href="sector-agenda.html" class="btn text-white border fw-medium">AGENDA</a>
+                        <a href="stands.html" class="btn text-white border fw-medium">STANDS</a>
+                        <a href="sector-contacto.html" class="btn text-white border fw-medium">CONTACTO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO DE LA ACTIVIDAD -->
+    <div class="container my-5">
+        <h2 class="fw-bold mb-4">Detalle de la Actividad</h2>
+        
+        <div class="row">
+            <!-- Columna Izquierda: Imagen + Nombre -->
+            <div class="col-md-5 mb-4">
+                <img id="det-imagen" src="../img/campusFest.jpg" class="img-fluid rounded shadow mb-3" alt="Actividad">
+                <h3 class="fw-bold" id="det-nombre">Cargando...</h3>
+            </div>
+
+            <!-- Columna Derecha: Descripción, Info Clave y Requisitos -->
             <div class="col-md-7">
-                <h3>Información Clave</h3>
-                <p><strong>Categoría:</strong> <span id="det-categoria"></span></p>
-                <p><strong>Fecha:</strong> <span id="det-fecha"></span></p>
-                <p><strong>Hora:</strong> <span id="det-hora"></span></p>
-                <p><strong>Lugar:</strong> <span id="det-lugar"></span></p>
-                <p><strong>Cupo Disponible:</strong> <span id="det-cupo"></span></p>
-                <p><strong>Estado:</strong> <span id="det-estado"></span></p>
+                <h3 class="fw-bold">Descripción Completa</h3>
+                <p id="det-descripcion" class="text-secondary">Cargando descripción...</p>
+                
+                <hr class="my-4">
 
-                <h3 class="mt-4">Requisitos de Participación</h3>
-                <ul id="det-requisitos"></ul>
+                <h3 class="fw-bold">Información Clave</h3>
+                <p class="mb-1"><strong>Categoría:</strong> <span id="det-categoria"></span></p>
+                <p class="mb-1"><strong>Fecha:</strong> <span id="det-fecha"></span></p>
+                <p class="mb-1"><strong>Hora:</strong> <span id="det-hora"></span></p>
+                <p class="mb-1"><strong>Lugar:</strong> <span id="det-lugar"></span></p>
+                <p class="mb-1"><strong>Cupo Disponible:</strong> <span id="det-cupo"></span></p>
+                <p class="mb-1"><strong>Estado:</strong> <span id="det-estado"></span></p>
 
-                <button class="btn btn-warning btn-lg mt-3 fw-bold px-4">Inscribirme</button>
+                <hr class="my-4">
+
+                <h3 class="fw-bold">Requisitos de Participación</h3>
+                <div id="det-requisitos" class="text-secondary"></div>
+
+                <div class="mt-4">
+                    <button class="btn btn-warning btn-lg fw-bold px-4">Inscribirme</button>
+                </div>
             </div>
         </div>
     </div>
