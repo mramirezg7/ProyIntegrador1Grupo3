@@ -157,21 +157,33 @@ async function registrarEstudiante() {
 
 
 async function mostrarActividades(){
+    // Leer el id que viene en la URL (?id=...)
+    const params = new URLSearchParams(window.location.search);
+    const idActividadURL = params.get("id");
+
     fetch("http://localhost:3000/actividades", {
         method: "GET",
         headers: { "Content-Type": "application/json" }
     })
     .then(response => response.json())
     .then(data => {
-        listaActividades.innerHTML = "";
+        listaActividades.innerHTML = '<option value="">Seleccione una actividad...</option>';
         data.forEach(actividad => {
             const nuevaOpcion = document.createElement("option");
-            nuevaOpcion.value = actividad._id; // 
+            nuevaOpcion.value = actividad._id; 
             nuevaOpcion.textContent = `${actividad.nombre} (${actividad.estado})`;
+            
             if (actividad.estado === 'Lleno') {
                 nuevaOpcion.disabled = true; // evita que elijan una llena
             }
+
+            // Si coincide con el ID pasado por URL, lo deja marcado por defecto
+            if (idActividadURL && actividad._id === idActividadURL) {
+                nuevaOpcion.selected = true;
+            }
+
             listaActividades.appendChild(nuevaOpcion);
         });
-    });
+    })
+    .catch(error => console.error("Error al cargar actividades:", error));
 };
