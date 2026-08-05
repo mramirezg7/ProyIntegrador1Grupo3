@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
+
+:root {
+    --azulOscuro: #164a98;
+    --azulClaro: #006AEA;
+    --celeste: #9CC8FF;
+    --grisClaro: #d2d2d2;
+    --grisOscuro: #7c7b75;
+    --amarillo: #fff200;
+    --mostaza: #ffc63e;
+    --celesteOscuro: #2b93d1;
+    --naranja: #f05323;
+    --verdeOscuro: #00734a;
+    --verdeClaro: #4aa147;
+    --rojo: #d2232a;
+    --turquesa: #00928d;
+    --rosa: #c81f66;
+    --caqui: #C7AC19;
+    --morado: #712c86;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Barra superior de navegación */
+.topbar {
+    background-color: var(--azulOscuro);
+    height: 85px;
+    border-bottom: 5px solid var(--grisOscuro);
+}
+
+.pagina-activa {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+}
+
+/* Tarjeta y bordes del formulario */
+.borde-formulario {
+    border: none !important;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Formato de Iconos e Inputs */
+.input-group-text {
+    border-color: #dee2e6;
+    color: #495057;
+    min-width: 45px;
+    justify-content: center;
+}
+
+.input-group .form-control:focus, 
+.input-group .form-select:focus,
+.input-group input[type="date"]:focus,
+.input-group input[type="time"]:focus {
+    box-shadow: none;
+    border-color: var(--azulClaro);
+}
+
+/* Texto de ayuda debajo de los campos */
+.form-text {
+    font-size: 0.825rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+/* Botón Guardar / Registrar Actividad */
+.btn-registrar-actividad {
+    background-color: var(--mostaza);
+    color: #000;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-registrar-actividad:hover {
+    background-color: #fab003;
+    color: #000;
+}
+
+.btn-registrar-actividad:active {
+    background-color: var(--mostaza);
+}
+
+/* Estilos de error/validación */
+.is-invalid {
+    border-color: var(--rojo) !important;
+}
+
+.invalid-feedback {
+    color: var(--rojo);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
