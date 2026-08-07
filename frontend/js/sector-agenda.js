@@ -36,7 +36,7 @@ async function cargarAgenda() {
             html += `
             <div class="row align-items-center ${mbClass} g-3">
                 <div class="col-12 col-md-2 text-md-start">
-                    <span class="fw-bold fs-5 text-dark">${actividad.hora || "N/A"}</span>
+                    <span class="fw-bold fs-5">${actividad.hora || "N/A"}</span>
                 </div>
                 <div class="col-12 col-md-7">
                     <h5 class="fw-bold mb-2">${actividad.nombre}</h5>

@@ -95,3 +95,29 @@ img{
     background-color: rgba(255, 255, 255, 0.2); /* Para un ligero fondo translúcido */
     border-color: #fff !important;
 }
+
+@media(prefers-color-scheme: dark){
+    body{
+        background-color: #0F172A;
+    }
+
+    .topbar{
+        background-color: #213659;
+    }
+
+    #contenedor-agenda{
+        background-color: #27354A;
+    }
+    
+    h1{
+        color:  #FFFFFF;
+    }
+
+    span{
+        color: white;
+    }
+
+    h5{
+        color: #94A3B8;
+    }
+}
