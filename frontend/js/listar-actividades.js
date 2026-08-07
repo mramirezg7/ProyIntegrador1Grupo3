@@ -32,7 +32,7 @@ async function obtenerActividades() {
 
             html += `
             <div class="col">
-                <div class="card h-100 shadow-sm text-center p-3">
+                <div class="card h-100 text-center p-3 fondo-tarjeta">
                     <div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
                         <img src="${imagen}" class="img-fluid" alt="${actividad.nombre}" style="max-height: 100%; object-fit: contain;">
                     </div>
