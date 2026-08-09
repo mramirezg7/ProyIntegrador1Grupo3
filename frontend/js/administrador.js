@@ -83,7 +83,7 @@ async function mostrarRegistros() {
                         <a href="${paginaEditar}?editar=${registro._id}" class="btn btn-sm btn-outline-primary me-2" title="Editar">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
-                        <button class="btn btn-sm btn-outline-danger" title="Eliminar">
+                        <button class="btn btn-sm btn-outline-danger" title="Eliminar" onclick="eliminarRegistro('${registro._id}')">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </div>
@@ -96,6 +96,34 @@ async function mostrarRegistros() {
     } catch (error) {
         console.log(error);
         contenedorDatos.innerHTML = '<div class="col-12"><p class="text-danger fs-5 text-center">No se pudieron cargar los registros. Verifique que el servidor esté en funcionamiento.</p></div>';
+    }
+}
+
+// Elimina el registro de la tarjeta en la que se presionó el basurero
+async function eliminarRegistro(id) {
+    const entidad = selectorEntidad.value;
+
+    const confirmar = confirm("¿Está seguro de que desea eliminar este registro? Esta acción no se puede deshacer.");
+
+    if (confirmar === false) {
+        return;
+    }
+
+    try {
+        const respuesta = await fetch("http://localhost:3000/" + entidad + "/" + id, {
+            method: "DELETE"
+        });
+
+        if (respuesta.ok) {
+            alert("Registro eliminado correctamente");
+            // Se vuelven a cargar las tarjetas para que el registro borrado desaparezca
+            mostrarRegistros();
+        } else {
+            alert("No se pudo eliminar el registro");
+        }
+    } catch (error) {
+        console.log(error);
+        alert("No se pudo conectar con el servidor");
     }
 }
 
