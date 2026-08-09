@@ -1,8 +1,49 @@
 const btnInscribir = document.getElementById("btnInscribirEstudiante");
 const listaActividades = document.getElementById("stlActividad");
 
+// Si en la dirección viene "editar" es porque se va a modificar un estudiante ya guardado
+const parametrosEstudiante = new URLSearchParams(window.location.search);
+const idEstudianteEditar = parametrosEstudiante.get("editar");
+
 
 mostrarActividades();
+cargarEstudiante();
+
+// Trae los datos del estudiante y los coloca en el formulario
+async function cargarEstudiante() {
+    if (idEstudianteEditar === null) {
+        return;
+    }
+
+    // Se cambian los textos para que se note que se está editando
+    document.getElementById("titulo-pagina").textContent = "Editar Estudiante";
+    btnInscribir.textContent = "Guardar Cambios";
+
+    // Al editar solo se cambian los datos personales, la actividad no se toca
+    document.getElementById("bloque-actividad").style.display = "none";
+    listaActividades.removeAttribute("required");
+
+    try {
+        const respuesta = await fetch("http://localhost:3000/estudiantes/" + idEstudianteEditar);
+
+        if (!respuesta.ok) {
+            alert("No se encontró el estudiante que se quiere editar");
+            return;
+        }
+
+        const estudiante = await respuesta.json();
+
+        document.getElementById("nombreCompleto").value = estudiante.nombreCompleto;
+        document.getElementById("identificacion").value = estudiante.identificacion;
+        document.getElementById("correoElectronico").value = estudiante.correo;
+        document.getElementById("telefono").value = estudiante.telefono;
+        document.getElementById("carrera").value = estudiante.carrera;
+
+    } catch (error) {
+        console.log(error);
+        alert("No se pudieron cargar los datos del estudiante");
+    }
+}
 
 function validarFormulario(event) {
     event.preventDefault();
@@ -63,8 +104,8 @@ function validarFormulario(event) {
         esValido = false;
     }
 
-    // Validar actividad
-    if (actividad.value.trim() === '') {
+    // Validar actividad (al editar un estudiante no se pide la actividad)
+    if (idEstudianteEditar === null && actividad.value.trim() === '') {
         mostrarError(actividad, 'La actividad es requerida');
         esValido = false;
     }
@@ -100,6 +141,42 @@ async function registrarEstudiante() {
         telefono: document.getElementById('telefono').value,
         carrera: document.getElementById('carrera').value
     };
+
+    // Si se está editando solo se actualizan los datos personales del estudiante
+    if (idEstudianteEditar !== null) {
+        try {
+            const respuestaPut = await fetch("http://localhost:3000/estudiantes/" + idEstudianteEditar, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(datosEstudiante)
+            });
+
+            if (respuestaPut.ok) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Estudiante actualizado con éxito.",
+                    confirmButtonText: "Aceptar"
+                }).then(() => {
+                    window.location.href = "administrador.html";
+                });
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "No se pudo actualizar el estudiante",
+                    confirmButtonText: "Aceptar"
+                });
+            }
+        } catch (error) {
+            console.error(error);
+            Swal.fire({
+                icon: "error",
+                title: "Error de conexión con el servidor",
+                confirmButtonText: "Aceptar"
+            });
+        }
+
+        return;
+    }
 
     // Leemos los datos en tiempo de ejecución (no arriba de todo el script)
     const datosActividadEstudiante = {

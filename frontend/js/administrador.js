@@ -23,6 +23,14 @@ async function mostrarRegistros() {
 
         let html = "";
 
+        // Formulario que se abre al presionar el lápiz de cada tarjeta
+        let paginaEditar = "registrar-stands.html";
+        if (entidad === "actividades") {
+            paginaEditar = "registrar-actividades.html";
+        } else if (entidad === "estudiantes") {
+            paginaEditar = "registrar-inscripcion.html";
+        }
+
         for (let i = 0; i < registros.length; i++) {
             const registro = registros[i];
             let titulo = "";
@@ -72,9 +80,9 @@ async function mostrarRegistros() {
                     </div>
 
                     <div class="mt-auto pt-3 text-end">
-                        <button class="btn btn-sm btn-outline-primary me-2" title="Editar">
+                        <a href="${paginaEditar}?editar=${registro._id}" class="btn btn-sm btn-outline-primary me-2" title="Editar">
                             <i class="fa-solid fa-pen-to-square"></i>
-                        </button>
+                        </a>
                         <button class="btn btn-sm btn-outline-danger" title="Eliminar">
                             <i class="fa-solid fa-trash"></i>
                         </button>
