@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@600;700&display=swap');
+
+:root {
+    --azulOscuro: #164a98;
+    --azulClaro: #006AEA;
+    --celeste: #9CC8FF;
+    --grisClaro: #d2d2d2;
+    --grisOscuro: #7c7b75;
+    --amarillo: #fff200;
+    --mostaza: #ffc63e;
+    --celesteOscuro: #2b93d1;
+    --naranja: #f05323;
+    --verdeOscuro: #00734a;
+    --verdeClaro: #4aa147;
+    --rojo: #d2232a;
+    --turquesa: #00928d;
+    --rosa: #c81f66;
+    --caqui: #C7AC19;
+    --morado: #712c86;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.topbar {
+    background-color: var(--azulOscuro);
+    height: 85px;
+    border-bottom: 5px solid var(--grisOscuro);
+}
+
+.pagina-activa {
+    font-weight: 800 !important; 
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-color: #fff !important;
+}
+
+.borde-formulario {
+    border: none !important;
+    border-radius: 8px;
+    box-shadow: 0px 2px 3px rgba(0,0,0,1);
+}
+
+.input-group-text {
+    border-color: #dee2e6;
+    color: #495057;
+    min-width: 45px;
+    justify-content: center;
+}
+
+.input-group .form-select:focus {
+    box-shadow: none;
+    border-color: var(--azulClaro);
+}
+
+.form-text {
+    font-size: 0.825rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+.tarjeta-registro {
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.tarjeta-registro:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+@media(prefers-color-scheme: dark){
+    body{
+        background-color: #0F172A;
+    }
+
+    .topbar{
+        background-color: #213659;
+    }
+
+    h1{
+        color: #FFFFFF;
+    }
+
+    .borde-formulario{
+        border: transparent;
+        border-radius: 8px;
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+        background-color: #27354A;
+    }
+
+    .form-label, .form-text{
+        color: #94A3B8;
+    }
+
+    .tarjeta-registro{
+        background-color: #27354A;
+        border-color: #94A3B8 !important;
+        color: #FFFFFF;
+    }
+}

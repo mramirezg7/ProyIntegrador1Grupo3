@@ -1,0 +1,94 @@
+// Muestra en tarjetas los registros guardados en la base de datos
+const selectorEntidad = document.getElementById("selectorEntidad");
+const contenedorDatos = document.getElementById("contenedor-datos");
+
+async function mostrarRegistros() {
+    const entidad = selectorEntidad.value;
+
+    if (entidad === "") {
+        contenedorDatos.innerHTML = '<div class="col-12"><p class="text-muted fs-5 text-center">Seleccione una entidad para ver los registros.</p></div>';
+        return;
+    }
+
+    contenedorDatos.innerHTML = '<div class="col-12"><p class="text-muted fs-5 text-center">Cargando registros...</p></div>';
+
+    try {
+        const respuesta = await fetch("http://localhost:3000/" + entidad);
+        const registros = await respuesta.json();
+
+        if (registros.length === 0) {
+            contenedorDatos.innerHTML = '<div class="col-12"><p class="text-muted fs-5 text-center">No hay registros guardados en esta entidad.</p></div>';
+            return;
+        }
+
+        let html = "";
+
+        for (let i = 0; i < registros.length; i++) {
+            const registro = registros[i];
+            let titulo = "";
+            let datos = "";
+
+            if (entidad === "actividades") {
+                const fecha = registro.fecha ? registro.fecha.split("T")[0] : "";
+                let requisitos = "Sin requisitos";
+                if (registro.requisitos && registro.requisitos.length > 0) {
+                    requisitos = registro.requisitos.join(", ");
+                }
+
+                titulo = registro.nombre;
+                datos = `
+                    <p class="mb-2"><strong>Categoría:</strong> ${registro.categoria}</p>
+                    <p class="mb-2"><strong>Fecha:</strong> ${fecha}</p>
+                    <p class="mb-2"><strong>Hora:</strong> ${registro.hora}</p>
+                    <p class="mb-2"><strong>Lugar:</strong> ${registro.lugar}</p>
+                    <p class="mb-2"><strong>Cupo máximo:</strong> ${registro.cupoMaximo}</p>
+                    <p class="mb-2"><strong>Estado:</strong> ${registro.estado}</p>
+                    <p class="mb-0"><strong>Requisitos:</strong> ${requisitos}</p>`;
+
+            } else if (entidad === "estudiantes") {
+                titulo = registro.nombreCompleto;
+                datos = `
+                    <p class="mb-2"><strong>Identificación:</strong> ${registro.identificacion}</p>
+                    <p class="mb-2"><strong>Correo:</strong> ${registro.correo}</p>
+                    <p class="mb-2"><strong>Teléfono:</strong> ${registro.telefono}</p>
+                    <p class="mb-2"><strong>Carrera:</strong> ${registro.carrera}</p>
+                    <p class="mb-0"><strong>Actividades inscritas:</strong> ${registro.actividades.length}</p>`;
+
+            } else {
+                titulo = registro.nombre;
+                datos = `
+                    <p class="mb-2"><strong>Categoría:</strong> ${registro.categoria}</p>
+                    <p class="mb-2"><strong>Responsable:</strong> ${registro.responsable}</p>
+                    <p class="mb-2"><strong>Ubicación:</strong> ${registro.ubicacion}</p>
+                    <p class="mb-0"><strong>Descripción:</strong> ${registro.descripcion}</p>`;
+            }
+
+            html += `
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 p-4 shadow-sm border border-dark tarjeta-registro">
+                    <h5 class="fw-bold mb-3">${titulo}</h5>
+                    <div style="font-size: 0.95rem;">
+                        ${datos}
+                    </div>
+
+                    <div class="mt-auto pt-3 text-end">
+                        <button class="btn btn-sm btn-outline-primary me-2" title="Editar">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" title="Eliminar">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        contenedorDatos.innerHTML = html;
+
+    } catch (error) {
+        console.log(error);
+        contenedorDatos.innerHTML = '<div class="col-12"><p class="text-danger fs-5 text-center">No se pudieron cargar los registros. Verifique que el servidor esté en funcionamiento.</p></div>';
+    }
+}
+
+selectorEntidad.addEventListener("change", mostrarRegistros);
