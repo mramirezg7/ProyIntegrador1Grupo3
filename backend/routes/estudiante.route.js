@@ -139,6 +139,42 @@ router.put("/agregar-actividad", async(req, res) =>{
     }
 })
 
+// Obtener un estudiante por su ID
+router.get("/:id", async (req, res) => {
+    try {
+        const estudiante = await Estudiante.findById(req.params.id);
+
+        if (!estudiante) {
+            return res.status(404).json({ mensajeError: "Estudiante no encontrado" });
+        }
+
+        res.json(estudiante);
+    } catch (error) {
+        res.status(500).json({ msj: "Error al obtener el estudiante", error: error.message });
+    }
+});
+
+// Actualizar un estudiante
+router.put("/:id", async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        // runValidators hace que se revisen las reglas del modelo
+        const estudiante = await Estudiante.findByIdAndUpdate(id, req.body, {
+            new: true,
+            runValidators: true
+        });
+
+        if (!estudiante) {
+            return res.status(404).json({ error: "Estudiante no encontrado" });
+        }
+
+        res.status(200).json(estudiante);
+    } catch (error) {
+        res.status(400).json({ mensajeError: error.message });
+    }
+});
+
 router.delete("/:id", async (req, res) => {
     const {id} = req.params;
 

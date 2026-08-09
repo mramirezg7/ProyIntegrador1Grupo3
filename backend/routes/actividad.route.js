@@ -53,6 +53,27 @@ router.get("/:id", async (req, res) => {
 });
 
 
+// Actualizar una actividad
+router.put("/:id", async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        // runValidators hace que se revisen las reglas del modelo (por ejemplo el estado)
+        const actividad = await Actividad.findByIdAndUpdate(id, req.body, {
+            new: true,
+            runValidators: true
+        });
+
+        if (!actividad) {
+            return res.status(404).json({ error: "Actividad no encontrada" });
+        }
+
+        res.status(200).json(actividad);
+    } catch (error) {
+        res.status(400).json({ mensajeError: error.message });
+    }
+});
+
 // Eliminar una actividad
 router.delete("/:id", async (req, res) => {
     const {id} = req.params;
