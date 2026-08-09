@@ -21,6 +21,10 @@ function cargarHeader() {
                     </div>
                 </div>
             </div>
+
+            <div class="col-12 col-lg-2 text-center text-lg-end mb-4 mb-lg-0">
+                <a href="login-administrador.html" class="btn btn-light fw-bold px-4">LOGIN</a>
+            </div>
         </div>
     </div>`;
 
@@ -35,10 +39,11 @@ function cargarHeader() {
         paginaActual = "lista-actividades.html";
     }
 
-    // Marcar en el menú la página actual (el logo CampusFest no se marca)
+    // Marcar en el menú la página actual (el logo y el botón LOGIN no se marcan)
     const enlaces = header.getElementsByTagName("a");
     for (let i = 0; i < enlaces.length; i++) {
-        if (enlaces[i].getAttribute("href") === paginaActual && enlaces[i].textContent !== "CampusFest") {
+        const texto = enlaces[i].textContent;
+        if (enlaces[i].getAttribute("href") === paginaActual && texto !== "CampusFest" && texto !== "LOGIN") {
             enlaces[i].classList.add("pagina-activa");
         }
     }
