@@ -7,9 +7,9 @@ const Actividad = require("../models/actividad.model");
 router.post("/", async (req, res) => {
     try{
         // Validar campos obligatorios 
-        const {nombre, categoria, fecha, hora, lugar, cupoMaximo, estado, requisitos} = req.body;
+        const {nombre, categoria, fecha, hora, lugar, cupoMaximo, estado} = req.body;
 
-        if(!nombre || !categoria || !fecha || !hora || !lugar || !cupoMaximo || !estado || !requisitos){
+        if(!nombre || !categoria || !fecha || !hora || !lugar || !cupoMaximo || !estado){
             return res.status(400).json({mensajeError: "Todos los campos son obligatorios."});
         }
 

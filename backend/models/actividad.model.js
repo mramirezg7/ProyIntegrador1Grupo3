@@ -17,10 +17,16 @@ const schemaActividad = new mongoose.Schema({
     hora: {
         type: String,
         required: true
-        
+
+    },
+    horaFin: {
+        type: String
+    },
+    encargado: {
+        type: String
     },
     lugar: {
-        type: String, 
+        type: String,
         required: true
     },
     cupoMaximo: {
@@ -32,9 +38,11 @@ const schemaActividad = new mongoose.Schema({
         enum: ['Lleno', 'Disponible'], 
         default: 'Disponible'
     },
+    descripcion: {
+        type: String
+    },
     requisitos: {
-        type: [String],
-        required: true
+        type: [String]
     }
 });
 

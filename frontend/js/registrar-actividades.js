@@ -9,19 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
-        // Aseguramos que NINGÚN campo requerido por el backend vaya vacío/undefined
+        // Los nombres de la izquierda son los del modelo y los de la derecha los del formulario
         const actividadPayload = {
-            nombre: data.nombre || 'Taller de Robótica',
-            categoria: data.categoria || data.tipo || 'Taller',
-            fecha: data.fecha || new Date().toISOString().split('T')[0],
-            hora: data.hora || '10:00', // Asignamos hora por defecto si el formulario no la pide
-            lugar: data.lugar || 'Auditorio Principal',
-            cupoMaximo: Number(data.cupoMaximo) || 30,
-            estado: 'Disponible', // Debe ser 'Disponible' o 'Lleno' según tu backend
-            // Usamos la 'descripcion' ingresada como 'requisitos' para cumplir el backend
-            requisitos: data.descripcion && data.descripcion.trim() !== '' 
-                ? [data.descripcion] 
-                : ['Sin requisitos específicos']
+            nombre: data.nombre,
+            categoria: data.tipo,
+            encargado: data.encargado,
+            fecha: data.fecha,
+            hora: data.hora_inicio,
+            horaFin: data.hora_fin,
+            lugar: data.lugar,
+            cupoMaximo: Number(data.cupo),
+            estado: data.estado,
+            descripcion: data.descripcion
         };
 
         try {

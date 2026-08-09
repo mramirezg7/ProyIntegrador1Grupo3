@@ -109,12 +109,12 @@
 
                     <!-- Cupo Máximo -->
                     <div class="col-md-6">
-                        <label for="cupo" class="form-label fw-bold">Cupo Máximo</label>
+                        <label for="cupo" class="form-label fw-bold">Cupo Máximo <span class="text-danger">*</span></label>
                         <div class="input-group">
                             <span class="input-group-text bg-light"><i class="fa-solid fa-users"></i></span>
-                            <input type="number" class="form-control" id="cupo" name="cupo" placeholder="Ejemplo: 50" min="1">
+                            <input type="number" class="form-control" id="cupo" name="cupo" placeholder="Ejemplo: 50" min="1" required>
                         </div>
-                        <div class="form-text">Dejar en blanco si el acceso es libre/ilimitado.</div>
+                        <div class="form-text">Cantidad máxima de participantes que se pueden inscribir.</div>
                     </div>
 
                     <!-- Estado -->
@@ -123,9 +123,8 @@
                         <div class="input-group">
                             <span class="input-group-text bg-light"><i class="fa-solid fa-circle-info"></i></span>
                             <select class="form-select" id="estado" name="estado">
-                                <option value="Programada" selected>Programada</option>
-                                <option value="Confirmada">Confirmada</option>
-                                <option value="En Curso">En Curso</option>
+                                <option value="Disponible" selected>Disponible</option>
+                                <option value="Lleno">Lleno</option>
                             </select>
                         </div>
                         <div class="form-text">Estado actual del evento.</div>
