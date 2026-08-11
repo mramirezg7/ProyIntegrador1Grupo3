@@ -12,8 +12,13 @@ async function cargarAgenda() {
             return;
         }
 
-        // Ordenar por hora (ascendente)
-        actividades.sort((a, b) => (a.hora || "").localeCompare(b.hora || ""));
+        // Ordenar primero por fecha y, si es el mismo día, por hora
+        actividades.sort((a, b) => {
+            if (a.fecha !== b.fecha) {
+                return a.fecha.localeCompare(b.fecha);
+            }
+            return (a.hora || "").localeCompare(b.hora || "");
+        });
 
         let html = "";
 
@@ -33,10 +38,14 @@ async function cargarAgenda() {
             // Margen inferior salvo para la última fila
             const mbClass = (index < actividades.length - 1) ? "mb-5" : "";
 
+            // La fecha viene como 2026-09-15T00:00:00.000Z, se toma solo la parte del día
+            const fecha = actividad.fecha ? actividad.fecha.split("T")[0] : "";
+
             html += `
             <div class="row align-items-center ${mbClass} g-3">
                 <div class="col-12 col-md-2 text-md-start">
-                    <span class="fw-bold fs-5">${actividad.hora || "N/A"}</span>
+                    <span class="fw-bold fs-5">${actividad.hora || "N/A"}</span><br>
+                    <span class="text-muted">${fecha}</span>
                 </div>
                 <div class="col-12 col-md-7">
                     <h5 class="fw-bold mb-2">${actividad.nombre}</h5>
