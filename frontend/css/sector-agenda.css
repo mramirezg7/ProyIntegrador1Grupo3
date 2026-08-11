@@ -114,6 +114,10 @@ img{
         color:  #FFFFFF;
     }
 
+    .text-muted{
+        color: white !important;
+    }
+
     span{
         color: white;
     }

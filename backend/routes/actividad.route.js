@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Actividad = require("../models/actividad.model");
+const Estudiante = require("../models/estudiante.model");
 
 // Registrar una nueva actividad
 
@@ -67,6 +68,15 @@ router.put("/:id", async (req, res) => {
         if (!actividad) {
             return res.status(404).json({ error: "Actividad no encontrada" });
         }
+        const inscritos = await Estudiante.countDocuments({ actividades: id });
+
+        if (inscritos >= actividad.cupoMaximo) {
+            actividad.estado = "Lleno";
+        } else {
+            actividad.estado = "Disponible";
+        }
+
+        await actividad.save();
 
         res.status(200).json(actividad);
     } catch (error) {
