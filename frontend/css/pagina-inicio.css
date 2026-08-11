@@ -49,6 +49,7 @@ body{
 img{
     height: 250px;
     width: 320px;
+    object-fit: cover;
 }
 
 .btn-actividades{

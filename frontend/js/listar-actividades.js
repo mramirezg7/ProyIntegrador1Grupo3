@@ -31,13 +31,14 @@ async function obtenerActividades() {
 
             const fechaFormateada = actividad.fecha ? actividad.fecha.split("T")[0] : "";
 
+            //<div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+            //            <img src="${imagen}" class="img-fluid" alt="${actividad.nombre}" style="max-height: 100%; object-fit: contain;"></img>        </div>
+
             html += `
             <div class="col">
                 <div class="card h-100 text-center p-3 fondo-tarjeta">
-                    <div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
-                        <img src="${imagen}" class="img-fluid" alt="${actividad.nombre}" style="max-height: 100%; object-fit: contain;">
-                    </div>
-
+                <img src="${imagen}" class="imagen-actividad mb-3" alt="${actividad.nombre}">
+                    
                     <div class="card-body p-0 d-flex flex-column justify-content-between">
                         <div class="text-start mb-3" style="font-size: 0.9rem;">
                             <h5 class="card-title fw-bold text-center mb-3">${actividad.nombre}</h5>

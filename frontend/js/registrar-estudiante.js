@@ -214,6 +214,7 @@ async function registrarEstudiante() {
                 title: "Estudiante inscrito y actividad asignada con éxito.",
                 confirmButtonText: "Aceptar"
             });
+            document.getElementById("formulario").reset();
         } else {
             Swal.fire({
                 icon: "error",
