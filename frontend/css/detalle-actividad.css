@@ -60,3 +60,21 @@ img{
     border-color: #fff !important;
 }
 
+@media(prefers-color-scheme: dark){
+    body{
+        background-color: #0F172A;
+    }
+
+    .topbar{
+        background-color: #213659;
+    }
+
+    h2, h4{
+        color: #FFFFFF;
+    }
+
+    p{
+        color: #94A3B8;
+    }
+}
+
