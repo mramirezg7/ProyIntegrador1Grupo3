@@ -32,6 +32,7 @@ body{
 img{
     height: 300px;
     width: 450px;
+    object-fit: cover;
 }
 
 .main-screen{
@@ -50,7 +51,7 @@ img{
 
 .btn-inscripcion:hover{
     background-color: var(--mostaza);
-    box-shadow: 0px 4px 12px rgba(0,0,0,08);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
 }
 
 .pagina-activa {
@@ -58,3 +59,4 @@ img{
     background-color: rgba(255, 255, 255, 0.2); /* Para un ligero fondo translúcido */
     border-color: #fff !important;
 }
+
