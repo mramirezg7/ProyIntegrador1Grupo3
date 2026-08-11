@@ -118,6 +118,10 @@ router.put("/agregar-actividad", async(req, res) =>{
         if (!actividad){
             return res.status(404).json({error: "Actividad no encontrada"});
         }
+        const inscritos = await Estudiante.countDocuments({actividades: actividadId});
+        if(inscritos >= actividad.cupoMaximo){
+            return res.status(400).json({mensajeError: "La actividad ya no tiene cupo disponible"});
+        }
 
         //Buscar el estudiante y agregar la actividad
         const estudiante = await Estudiante.findOne({identificacion});
@@ -128,6 +132,10 @@ router.put("/agregar-actividad", async(req, res) =>{
         if(!estudiante.actividades.includes(actividadId)){
             estudiante.actividades.push(actividadId);
             await estudiante.save();
+            if(inscritos + 1 >= actividad.cupoMaximo){
+                actividad.estado = "Lleno";
+                await actividad.save();
+            }
         }else{
             return res.status(404).json({error: "Estudiante ya se encuentra registrado en la actividad"})
         }
@@ -182,6 +190,21 @@ router.delete("/:id", async (req, res) => {
         const estudiante = await Estudiante.findByIdAndDelete(id);
         if(!estudiante){
             return res.status(404).json({ error: "Estudiante no encontrado"});
+        }
+        for(let i = 0; i < estudiante.actividades.length; i++){
+            const actividad = await Actividad.findById(estudiante.actividades[i]);
+
+            if(actividad){
+                const inscritos = await Estudiante.countDocuments({actividades: actividad._id});
+
+                if(inscritos >= actividad.cupoMaximo){
+                    actividad.estado = "Lleno";
+                }else{
+                    actividad.estado = "Disponible";
+                }
+
+                await actividad.save();
+            }
         }
         res.status(200).json({ mensaje: "Estudiante Eliminado"})
     } catch (error){
