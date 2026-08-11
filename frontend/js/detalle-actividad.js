@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("det-lugar").textContent = actividad.lugar || "";
         document.getElementById("det-cupo").textContent = actividad.cupoMaximo || "";
         document.getElementById("det-estado").textContent = actividad.estado || "";
+        document.getElementById("det-imagen").src = obtenerImagenActividad(actividad.categoria);
+        document.getElementById("det-imagen").alt = actividad.nombre || "Actividad";
 
         // Si la actividad está llena o cancelada, deshabilitar el botón
         if (actividad.estado === "Lleno" || actividad.cupoMaximo <= 0) {

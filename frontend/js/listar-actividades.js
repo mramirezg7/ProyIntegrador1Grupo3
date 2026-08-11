@@ -17,7 +17,8 @@ async function obtenerActividades() {
             const actividad = actividades[i];
 
             // 1. Imagen por defecto para las actividades
-            let imagen = "../img/campusFest.jpg";
+            //let imagen = "../img/campusFest.jpg";
+            const imagen = obtenerImagenActividad(actividad.categoria);
 
             // 2. CAMBIO CLAVE: Pasar el ID único de la actividad en la URL
             const paginaDetalle = `detalle-actividad.html?id=${actividad._id}`;
