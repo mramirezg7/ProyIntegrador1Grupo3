@@ -71,6 +71,15 @@ async function mostrarRegistros() {
                     <p class="mb-0"><strong>Descripción:</strong> ${registro.descripcion}</p>`;
             }
 
+            // El botón de participantes solo tiene sentido en las actividades
+            let botonParticipantes = "";
+            if (entidad === "actividades") {
+                botonParticipantes = `
+                        <button class="btn btn-sm btn-outline-dark me-2" title="Ver participantes" onclick="verParticipantes('${registro._id}')">
+                            <i class="fa-solid fa-users"></i>
+                        </button>`;
+            }
+
             // El botón de cancelar solo se muestra en las actividades que siguen activas
             let botonCancelar = "";
             if (entidad === "actividades" && registro.estado !== "Cancelado") {
@@ -89,6 +98,7 @@ async function mostrarRegistros() {
                     </div>
 
                     <div class="mt-auto pt-3 text-end">
+                        ${botonParticipantes}
                         <a href="${paginaEditar}?editar=${registro._id}" class="btn btn-sm btn-outline-primary me-2" title="Editar">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
@@ -106,6 +116,47 @@ async function mostrarRegistros() {
     } catch (error) {
         console.log(error);
         contenedorDatos.innerHTML = '<div class="col-12"><p class="text-danger fs-5 text-center">No se pudieron cargar los registros. Verifique que el servidor esté en funcionamiento.</p></div>';
+    }
+}
+
+// Muestra en una ventana los estudiantes inscritos en una actividad
+async function verParticipantes(id) {
+    const cuerpo = document.getElementById("lista-participantes");
+    cuerpo.innerHTML = '<p class="text-muted mb-0">Cargando participantes...</p>';
+
+    // Se abre la ventana de Bootstrap
+    const ventana = new bootstrap.Modal(document.getElementById("modal-participantes"));
+    ventana.show();
+
+    try {
+        const respuesta = await fetch("http://localhost:3000/actividades/" + id + "/participantes");
+        const participantes = await respuesta.json();
+
+        if (participantes.length === 0) {
+            cuerpo.innerHTML = '<p class="text-muted mb-0">Todavía no hay estudiantes inscritos en esta actividad.</p>';
+            return;
+        }
+
+        let html = '<p class="fw-bold">Total de inscritos: ' + participantes.length + '</p>';
+        html += '<ul class="list-group">';
+
+        for (let i = 0; i < participantes.length; i++) {
+            const estudiante = participantes[i];
+            html += `
+            <li class="list-group-item">
+                <p class="fw-bold mb-1">${estudiante.nombreCompleto}</p>
+                <p class="mb-1"><strong>Identificación:</strong> ${estudiante.identificacion}</p>
+                <p class="mb-1"><strong>Correo:</strong> ${estudiante.correo}</p>
+                <p class="mb-0"><strong>Carrera:</strong> ${estudiante.carrera}</p>
+            </li>`;
+        }
+
+        html += '</ul>';
+        cuerpo.innerHTML = html;
+
+    } catch (error) {
+        console.log(error);
+        cuerpo.innerHTML = '<p class="text-danger mb-0">No se pudieron cargar los participantes.</p>';
     }
 }
 

@@ -65,6 +65,24 @@ router.get("/:id", async (req, res) => {
 });
 
 
+// Obtener los estudiantes inscritos en una actividad
+router.get("/:id/participantes", async (req, res) => {
+    try {
+        const actividad = await Actividad.findById(req.params.id);
+
+        if (!actividad) {
+            return res.status(404).json({ mensajeError: "Actividad no encontrada" });
+        }
+
+        // Se buscan los estudiantes que tengan esta actividad en su lista
+        const participantes = await Estudiante.find({ actividades: req.params.id });
+
+        res.json(participantes);
+    } catch (error) {
+        res.status(500).json({ msj: "Error al obtener los participantes", error: error.message });
+    }
+});
+
 // Actualizar una actividad
 router.put("/:id", async (req, res) => {
     const {id} = req.params;
