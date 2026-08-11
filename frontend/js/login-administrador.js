@@ -7,7 +7,7 @@ function validarAdministrador(event) {
     if (correo.endsWith('@cenfotec.ac.cr')) {
         // Guardamos que el usuario ingresó como administrador mientras dure la pestaña
         sessionStorage.setItem('esAdministrador', 'true');
-        window.location.href = 'pagina-inicio.html';
+        window.location.href = 'administrador.html';
     } else {
         alert('El usuario no es aceptado como administrador. Debe usar un correo @cenfotec.ac.cr');
     }

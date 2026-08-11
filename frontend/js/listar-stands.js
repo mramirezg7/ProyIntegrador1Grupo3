@@ -49,7 +49,7 @@ async function obtenerStands() {
                             <p class="mb-0"><strong>Ubicación:</strong> ${stand.ubicacion}</p>
                             <label class="form-label fw-bold fs-5 mb-1">Descripción:</label>
                     <div class="border border-dark p-3 bg-white mb-4" style="min-height: 120px; border-radius: 4px;">
-                        <p class="text-muted small mb-0">${primero.descripcion}</p>
+                        <p class="text-muted small mb-0">${stand.descripcion}</p>
                     </div>
                         </div>
                         
