@@ -33,6 +33,12 @@ async function obtenerActividades() {
 
             const fechaFormateada = actividad.fecha ? actividad.fecha.split("T")[0] : "";
 
+            // Los cupos que quedan son el máximo menos los estudiantes ya inscritos
+            let cupoDisponible = actividad.cupoMaximo - actividad.inscritos;
+            if (cupoDisponible < 0) {
+                cupoDisponible = 0;
+            }
+
             //<div class="bg-light border d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
             //            <img src="${imagen}" class="img-fluid" alt="${actividad.nombre}" style="max-height: 100%; object-fit: contain;"></img>        </div>
 
@@ -48,7 +54,7 @@ async function obtenerActividades() {
                             <p class="card-text mb-1"><strong>Fecha:</strong> ${fechaFormateada}</p>
                             <p class="card-text mb-1"><strong>Hora:</strong> ${actividad.hora}</p>
                             <p class="card-text mb-1"><strong>Lugar:</strong> ${actividad.lugar}</p>
-                            <p class="card-text mb-1"><strong>Cupo Máximo:</strong> ${actividad.cupoMaximo}</p>
+                            <p class="card-text mb-1"><strong>Cupo Disponible:</strong> ${cupoDisponible}</p>
                             <p class="card-text mb-0"><strong>Estado:</strong> <span class="badge ${colorEstado}">${actividad.estado}</span></p>
                         </div>
 

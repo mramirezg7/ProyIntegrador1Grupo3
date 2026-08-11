@@ -32,7 +32,18 @@ router.post("/", async (req, res) => {
 router.get("/", async (req, res) => {
     try {
         const actividades = await Actividad.find();
-        res.json(actividades);
+
+        // A cada actividad se le agrega cuántos estudiantes tiene inscritos
+        const lista = [];
+
+        for (let i = 0; i < actividades.length; i++) {
+            const inscritos = await Estudiante.countDocuments({ actividades: actividades[i]._id });
+            const datos = actividades[i].toObject();
+            datos.inscritos = inscritos;
+            lista.push(datos);
+        }
+
+        res.json(lista);
     } catch (error){
         res.status(500).json({ msj: "Error al obtener las actividades", error });
     }
