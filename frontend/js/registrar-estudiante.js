@@ -251,7 +251,7 @@ async function mostrarActividades(){
             nuevaOpcion.value = actividad._id; 
             nuevaOpcion.textContent = `${actividad.nombre} (${actividad.estado})`;
             
-            if (actividad.estado === 'Lleno') {
+            if (actividad.estado === 'Lleno' || actividad.estado === 'Cancelado') {
                 nuevaOpcion.disabled = true; // evita que elijan una llena
             }
 

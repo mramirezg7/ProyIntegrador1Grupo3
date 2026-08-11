@@ -38,7 +38,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("det-imagen").alt = actividad.nombre || "Actividad";
 
         // Si la actividad está llena o cancelada, deshabilitar el botón
-        if (actividad.estado === "Lleno" || actividad.cupoMaximo <= 0) {
+        if (actividad.estado === "Cancelado") {
+            btnInscribirme.disabled = true;
+            btnInscribirme.classList.replace("btn-warning", "btn-secondary");
+            btnInscribirme.textContent = "Actividad Cancelada";
+        } else if (actividad.estado === "Lleno" || actividad.cupoMaximo <= 0) {
             btnInscribirme.disabled = true;
             btnInscribirme.classList.replace("btn-warning", "btn-secondary");
             btnInscribirme.textContent = "Cupo Lleno";

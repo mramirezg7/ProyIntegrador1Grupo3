@@ -71,6 +71,15 @@ async function mostrarRegistros() {
                     <p class="mb-0"><strong>Descripción:</strong> ${registro.descripcion}</p>`;
             }
 
+            // El botón de cancelar solo se muestra en las actividades que siguen activas
+            let botonCancelar = "";
+            if (entidad === "actividades" && registro.estado !== "Cancelado") {
+                botonCancelar = `
+                        <button class="btn btn-sm btn-outline-secondary me-2" title="Cancelar actividad" onclick="cancelarActividad('${registro._id}')">
+                            <i class="fa-solid fa-ban"></i>
+                        </button>`;
+            }
+
             html += `
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card h-100 p-4 shadow-sm border border-dark tarjeta-registro">
@@ -83,6 +92,7 @@ async function mostrarRegistros() {
                         <a href="${paginaEditar}?editar=${registro._id}" class="btn btn-sm btn-outline-primary me-2" title="Editar">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
+                        ${botonCancelar}
                         <button class="btn btn-sm btn-outline-danger" title="Eliminar" onclick="eliminarRegistro('${registro._id}')">
                             <i class="fa-solid fa-trash"></i>
                         </button>
@@ -96,6 +106,35 @@ async function mostrarRegistros() {
     } catch (error) {
         console.log(error);
         contenedorDatos.innerHTML = '<div class="col-12"><p class="text-danger fs-5 text-center">No se pudieron cargar los registros. Verifique que el servidor esté en funcionamiento.</p></div>';
+    }
+}
+
+// Marca una actividad como cancelada, sin borrarla ni quitar a los inscritos
+async function cancelarActividad(id) {
+    const confirmar = confirm("¿Desea cancelar esta actividad? Los estudiantes inscritos se mantienen.");
+
+    if (confirmar === false) {
+        return;
+    }
+
+    try {
+        const respuesta = await fetch("http://localhost:3000/actividades/" + id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ estado: "Cancelado" })
+        });
+
+        if (respuesta.ok) {
+            alert("La actividad quedó cancelada");
+            mostrarRegistros();
+        } else {
+            alert("No se pudo cancelar la actividad");
+        }
+    } catch (error) {
+        console.log(error);
+        alert("No se pudo conectar con el servidor");
     }
 }
 

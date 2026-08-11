@@ -35,7 +35,7 @@ const schemaActividad = new mongoose.Schema({
     },
     estado: { 
         type: String,
-        enum: ['Lleno', 'Disponible'], 
+        enum: ['Lleno', 'Disponible', 'Cancelado'],
         default: 'Disponible'
     },
     descripcion: {

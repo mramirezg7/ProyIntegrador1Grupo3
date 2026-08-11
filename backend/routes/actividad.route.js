@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
         }
 
         // Validar que el tipo esté dentro de los valores permitidos por el enum
-        const estadosPermitidos = ['Lleno', 'Disponible'];
+        const estadosPermitidos = ['Lleno', 'Disponible', 'Cancelado'];
         if (!estadosPermitidos.includes(estado)) {
             return res.status(400).json({ mensajeError: "El estado debe ser uno de: " + estadosPermitidos.join(', ')});
         }
@@ -68,15 +68,18 @@ router.put("/:id", async (req, res) => {
         if (!actividad) {
             return res.status(404).json({ error: "Actividad no encontrada" });
         }
-        const inscritos = await Estudiante.countDocuments({ actividades: id });
+        // Si la actividad fue cancelada se respeta ese estado, si no depende de los inscritos
+        if (actividad.estado !== "Cancelado") {
+            const inscritos = await Estudiante.countDocuments({ actividades: id });
 
-        if (inscritos >= actividad.cupoMaximo) {
-            actividad.estado = "Lleno";
-        } else {
-            actividad.estado = "Disponible";
+            if (inscritos >= actividad.cupoMaximo) {
+                actividad.estado = "Lleno";
+            } else {
+                actividad.estado = "Disponible";
+            }
+
+            await actividad.save();
         }
-
-        await actividad.save();
 
         res.status(200).json(actividad);
     } catch (error) {

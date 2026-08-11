@@ -27,6 +27,8 @@ async function obtenerActividades() {
             let colorEstado = "bg-danger";
             if (actividad.estado === "Disponible") {
                 colorEstado = "bg-success";
+            } else if (actividad.estado === "Cancelado") {
+                colorEstado = "bg-secondary";
             }
 
             const fechaFormateada = actividad.fecha ? actividad.fecha.split("T")[0] : "";

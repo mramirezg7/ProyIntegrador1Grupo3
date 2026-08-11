@@ -118,6 +118,11 @@ router.put("/agregar-actividad", async(req, res) =>{
         if (!actividad){
             return res.status(404).json({error: "Actividad no encontrada"});
         }
+        //No se puede inscribir a nadie en una actividad que fue cancelada
+        if(actividad.estado === "Cancelado"){
+            return res.status(400).json({mensajeError: "La actividad fue cancelada"});
+        }
+
         const inscritos = await Estudiante.countDocuments({actividades: actividadId});
         if(inscritos >= actividad.cupoMaximo){
             return res.status(400).json({mensajeError: "La actividad ya no tiene cupo disponible"});
@@ -194,7 +199,8 @@ router.delete("/:id", async (req, res) => {
         for(let i = 0; i < estudiante.actividades.length; i++){
             const actividad = await Actividad.findById(estudiante.actividades[i]);
 
-            if(actividad){
+            //Las actividades canceladas mantienen su estado
+            if(actividad && actividad.estado !== "Cancelado"){
                 const inscritos = await Estudiante.countDocuments({actividades: actividad._id});
 
                 if(inscritos >= actividad.cupoMaximo){
